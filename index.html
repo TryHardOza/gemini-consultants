@@ -70,10 +70,23 @@
     }
     </script>
     
-    <!-- Ultra-Crisp Google Fonts -->
+    <!-- Performance & Pre-resolution Hints -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://wa.me">
+    <link rel="dns-prefetch" href="https://unpkg.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preload Critical LCP Hero Image -->
+    <link rel="preload" as="image" href="business_card.webp" type="image/webp" fetchpriority="high">
+    
+    <!-- Non-Blocking Google Fonts Loading with display=swap -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap">
+    </noscript>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -91,12 +104,6 @@
             }
         }
     </script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Lenis Smooth Momentum Scroll CDN -->
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
 
     <style>
         /* ==========================================================================
@@ -374,7 +381,18 @@
             </nav>
 
             <!-- Action Controls -->
-            <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+            <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+                <!-- Desktop Direct Call Button -->
+                <a href="tel:8830634354" class="hidden sm:inline-flex items-center gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-theme-surface border border-theme-subtle hover:border-theme-gold text-theme-primary font-semibold text-xs transition-all touch-press h-9 sm:h-10" aria-label="Direct Phone Call to Jeet Oza" title="Call Principal Advisor: +91 88306 34354">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-theme-gold"></i>
+                    <span>+91 88306 34354</span>
+                </a>
+
+                <!-- Mobile Direct Call Quick Icon Button -->
+                <a href="tel:8830634354" class="sm:hidden p-2 rounded-lg border border-theme-subtle text-theme-gold hover:border-theme-gold transition-colors touch-press w-9 h-9 flex items-center justify-center" aria-label="Direct Phone Call to Jeet Oza" title="Call Directly">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                </a>
+
                 <!-- Theme Toggle Button -->
                 <button id="themeToggle" type="button" class="p-2 sm:p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold hover:border-theme-gold transition-colors touch-press w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center" title="Toggle Light / Dark Mode" aria-label="Toggle light or dark theme">
                     <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
@@ -436,7 +454,10 @@
         
         <!-- Fora-Style Dark Ambient Architectural Wallpaper (Fades into pure black) -->
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none dark:block hidden" aria-hidden="true">
-            <img src="hero_dark_bg.jpg" alt="" width="1376" height="768" class="w-full h-full object-cover object-center opacity-45 mix-blend-screen scale-105 transition-transform duration-1000">
+            <picture>
+                <source srcset="hero_dark_bg.webp" type="image/webp">
+                <img src="hero_dark_bg.jpg" alt="" width="1376" height="768" loading="lazy" decoding="async" class="w-full h-full object-cover object-center opacity-45 mix-blend-screen scale-105 transition-transform duration-1000">
+            </picture>
             <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black/90"></div>
         </div>
@@ -461,18 +482,25 @@
                         Navigating <strong>Direct Tax (DT) & GST</strong>, Section 44ADA 50% deductions for creators, turnkey partnership deeds u/s 40(b) for startups, co-operative housing society accounting, and bank-approved financial statements.
                     </p>
 
-                    <!-- Clean CTAs -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1 sm:pt-2">
+                    <!-- Action CTAs: Explore Services, Schedule Consultation & Direct Call -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-3.5 pt-1 sm:pt-2">
                         <a href="#services" 
-                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl gold-button text-sm tracking-wide shadow-lg touch-press min-h-[48px]">
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl gold-button text-sm tracking-wide shadow-lg touch-press min-h-[48px]">
                             <span>Explore Services</span>
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
 
                         <a href="#consultation" 
-                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl theme-card hover:border-theme-gold hover:bg-theme-surface/70 text-theme-primary font-semibold text-sm transition-all touch-press min-h-[48px]">
-                            <i data-lucide="message-circle" class="w-4 h-4 text-theme-gold"></i>
-                            <span>Start Communication</span>
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 sm:py-4 rounded-xl theme-card hover:border-theme-gold hover:bg-theme-surface/70 text-theme-primary font-semibold text-sm transition-all touch-press min-h-[48px]">
+                            <i data-lucide="calendar" class="w-4 h-4 text-theme-gold"></i>
+                            <span>Schedule Consultation</span>
+                        </a>
+
+                        <a href="tel:8830634354" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 sm:py-4 rounded-xl border border-theme-subtle hover:border-theme-gold bg-theme-surface/50 hover:bg-theme-surface text-theme-secondary hover:text-theme-primary font-semibold text-sm transition-all touch-press min-h-[48px]"
+                           aria-label="Direct Phone Call to Jeet Oza">
+                            <i data-lucide="phone" class="w-4 h-4 text-theme-gold"></i>
+                            <span>Direct Call</span>
                         </a>
                     </div>
 
@@ -488,7 +516,10 @@
                     <div class="relative mx-auto max-w-sm sm:max-w-md">
                         
                         <div id="cardTrigger" role="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false" aria-controls="cardModal" aria-label="Open Gemini Consultants business card and full scope of services" class="group relative rounded-2xl border-2 border-theme-gold/40 hover:border-theme-gold shadow-2xl p-1.5 sm:p-2 bg-theme-elevated overflow-hidden transition-all duration-300 hover:scale-[1.01] touch-press cursor-pointer" title="Tap to reveal all services and mandate">
-                            <img src="business_card.png" alt="Gemini Consultants - Jeet Oza Business Card" width="1702" height="976" loading="eager" fetchpriority="high" class="w-full h-auto object-cover rounded-xl transition-transform duration-300">
+                            <picture>
+                                <source srcset="business_card.webp" type="image/webp">
+                                <img src="business_card.png" alt="Gemini Consultants - Jeet Oza Business Card" width="1702" height="976" loading="eager" fetchpriority="high" decoding="async" class="w-full h-auto object-cover rounded-xl transition-transform duration-300">
+                            </picture>
                             
                             <!-- Sleek Floating Badge -->
                             <div class="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full gold-button text-[10.5px] sm:text-xs font-bold uppercase tracking-wider shadow-lg opacity-95 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none">
@@ -575,11 +606,11 @@
                         </div>
                     </div>
 
-                    <!-- Launch Button: Start Communication -->
+                    <!-- Launch Button: Start Consultation on WhatsApp -->
                     <div class="pt-1 sm:pt-2">
-                        <button id="routerSubmitBtn" type="submit" class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl gold-button text-sm tracking-wide shadow-xl touch-press min-h-[50px]" aria-label="Start Communication on WhatsApp">
+                        <button id="routerSubmitBtn" type="submit" class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl gold-button text-sm tracking-wide shadow-xl touch-press min-h-[50px]" aria-label="Start Consultation on WhatsApp">
                             <i data-lucide="message-circle" class="w-5 h-5"></i>
-                            <span>Start Communication</span>
+                            <span>Start Consultation on WhatsApp</span>
                         </button>
                     </div>
                 </form>
@@ -628,7 +659,10 @@
 
                 <!-- Business Card Display -->
                 <div class="rounded-xl overflow-hidden border border-theme-gold/40 shadow-lg">
-                    <img src="business_card.png" alt="Gemini Consultants Card - Jeet Oza" width="1702" height="976" loading="lazy" class="w-full h-auto object-cover">
+                    <picture>
+                        <source srcset="business_card.webp" type="image/webp">
+                        <img src="business_card.png" alt="Gemini Consultants Card - Jeet Oza" width="1702" height="976" loading="lazy" decoding="async" class="w-full h-auto object-cover">
+                    </picture>
                 </div>
 
                 <!-- Written Services Overview -->
@@ -678,15 +712,26 @@
         </div>
     </div>
 
-    <!-- Floating Concierge Pill (Mobile Safe-Area Inset) -->
-    <a href="https://wa.me/918830634354?text=Hello%20Jeet,%20I%20would%20like%20to%20consult%20with%20Gemini%20Consultants." 
-       target="_blank" rel="noopener noreferrer"
-       class="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-4 sm:right-6 sm:bottom-6 z-30 flex items-center gap-2.5 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-full theme-card border-theme-gold text-theme-primary shadow-2xl hover:scale-105 active:scale-95 transition-all group touch-press"
-       title="Direct Advisory Consultation with Jeet Oza">
-        <i data-lucide="message-circle" class="w-4 h-4 text-theme-gold"></i>
-        <span class="text-xs font-semibold tracking-wide group-hover:text-theme-gold transition-colors">Start Communication</span>
-    </a>
+    <!-- Floating Dual Concierge: WhatsApp & Direct Call (Mobile Safe-Area Inset) -->
+    <div class="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-3.5 sm:right-6 sm:bottom-6 z-30 flex items-center p-1 rounded-full theme-card border border-theme-gold shadow-2xl backdrop-blur-xl bg-theme-surface/95 transition-all">
+        <a href="https://wa.me/918830634354?text=Hello%20Jeet,%20I%20would%20like%20to%20consult%20with%20Gemini%20Consultants." 
+           target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2 rounded-full gold-button text-xs font-semibold tracking-wide touch-press"
+           aria-label="Start Consultation on WhatsApp" title="WhatsApp Advisory">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>WhatsApp</span>
+        </a>
+        <a href="tel:8830634354"
+           class="inline-flex items-center gap-1.5 px-3 sm:px-3.5 py-2 rounded-full text-xs font-semibold text-theme-primary hover:text-theme-gold transition-colors touch-press"
+           aria-label="Direct Phone Call to Jeet Oza" title="Call Directly: +91 88306 34354">
+            <i data-lucide="phone" class="w-4 h-4 text-theme-gold"></i>
+            <span>Call</span>
+        </a>
+    </div>
 
+    <!-- Pinned CDN Assets: Lucide & Lenis (Non-Render-Blocking) -->
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <!-- Load App Controller & Logic -->
     <script src="services.js"></script>
     <script>
@@ -784,13 +829,20 @@
                             <span class="text-xs font-bold uppercase tracking-widest text-theme-gold">${practice.subtitle}</span>
                             <h3 id="activeTabHeading" class="font-serif text-2xl sm:text-4xl font-normal text-theme-primary mt-1">${practice.title}</h3>
                         </div>
-                        <a href="https://wa.me/91${FIRM_CONFIG.brand.phone}?text=${encodeURIComponent('Hello Jeet, I would like to consult regarding ' + practice.title + ' with Gemini Consultants.')}" 
-                           target="_blank" rel="noopener noreferrer"
-                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-theme-gold text-theme-gold hover:bg-theme-surface font-semibold text-xs tracking-wider uppercase transition-all shrink-0 min-h-[44px] touch-press"
-                           aria-label="Inquire about ${practice.title} on WhatsApp">
-                            <i data-lucide="message-square" class="w-4 h-4"></i>
-                            <span>Inquire</span>
-                        </a>
+                        <div class="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                            <a href="https://wa.me/91${FIRM_CONFIG.brand.phone}?text=${encodeURIComponent('Hello Jeet, I would like to consult regarding ' + practice.title + ' with Gemini Consultants.')}" 
+                               target="_blank" rel="noopener noreferrer"
+                               class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-theme-gold text-theme-gold hover:bg-theme-surface font-semibold text-xs tracking-wider uppercase transition-all min-h-[44px] touch-press"
+                               aria-label="Inquire about ${practice.title} on WhatsApp">
+                                <i data-lucide="message-square" class="w-4 h-4"></i>
+                                <span>Inquire on WhatsApp</span>
+                            </a>
+                            <a href="tel:${FIRM_CONFIG.brand.phone}"
+                               class="inline-flex items-center justify-center p-2.5 rounded-xl border border-theme-subtle hover:border-theme-gold text-theme-secondary hover:text-theme-gold transition-colors min-h-[44px] min-w-[44px] touch-press"
+                               aria-label="Direct Phone Call to Jeet Oza" title="Direct Phone Call">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                            </a>
+                        </div>
                     </div>
 
                     <p class="text-xs sm:text-sm text-theme-secondary max-w-3xl leading-relaxed font-light">
@@ -1023,7 +1075,7 @@
                 if (window.innerWidth >= 768 && !drawer.classList.contains('hidden')) {
                     setMenuState(false);
                 }
-            });
+            }, { passive: true });
         }
 
         // 9. Smooth Anchor Scrolling with Lenis Integration
