@@ -2,7 +2,8 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <meta name="theme-color" content="#FBF9F5" id="metaThemeColor">
     <title>Gemini Consultants | Tax, GST & Business Advisory</title>
     <meta name="description" content="Gemini Consultants (Jeet Oza). Strategic Direct Tax (DT), GST, New Business Setup, Co-op Housing Society Accounting, and Bank Loan CMA Financials.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
@@ -243,24 +244,75 @@
         .lenis.lenis-stopped {
             overflow: hidden;
         }
+
+        /* Mobile Touch & Ergonomics Optimizations */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (max-width: 640px) {
+            input, select, textarea {
+                font-size: 16px !important; /* Prevents unwanted iOS Safari zooming */
+            }
+        }
+
+        .touch-press {
+            transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.15s ease;
+        }
+        .touch-press:active {
+            transform: scale(0.97);
+            opacity: 0.92;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Mobile Bottom Sheet Modal Behavior */
+        @media (max-width: 639px) {
+            #cardModal {
+                align-items: flex-end !important;
+                padding: 0 !important;
+            }
+            #cardModal .modal-sheet {
+                border-bottom-left-radius: 0 !important;
+                border-bottom-right-radius: 0 !important;
+                max-height: 92vh !important;
+                margin-bottom: 0 !important;
+                padding-bottom: max(1.5rem, env(safe-area-inset-bottom)) !important;
+                animation: sheetSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            @keyframes sheetSlideUp {
+                from {
+                    transform: translateY(100%);
+                }
+                to {
+                    transform: translateY(0);
+                }
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-amber-600 selection:text-white">
 
     <!-- Executive Sticky Navigation -->
     <header class="sticky top-0 z-40 backdrop-blur-xl bg-theme-surface/90 border-b border-theme-subtle transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
             
             <!-- Brand Logo Mark -->
-            <a href="#" class="flex items-center gap-3.5 group">
-                <div class="w-10 h-10 rounded-lg bg-theme-elevated border border-theme-gold flex items-center justify-center text-theme-gold font-display font-bold text-lg shadow-sm group-hover:scale-105 transition-transform">
+            <a href="#" class="flex items-center gap-2.5 sm:gap-3.5 group">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-theme-elevated border border-theme-gold flex items-center justify-center text-theme-gold font-display font-bold text-base sm:text-lg shadow-sm group-hover:scale-105 transition-transform shrink-0">
                     GC
                 </div>
                 <div>
-                    <span class="font-display text-base sm:text-lg tracking-widest uppercase font-bold text-theme-primary block leading-tight">
+                    <span class="font-display text-sm sm:text-base lg:text-lg tracking-wider sm:tracking-widest uppercase font-bold text-theme-primary block leading-tight">
                         GEMINI <span class="text-theme-gold">CONSULTANTS</span>
                     </span>
-                    <span class="text-[9px] sm:text-[10px] tracking-[0.2em] text-theme-muted uppercase block font-medium">
+                    <span class="text-[8.5px] sm:text-[10px] tracking-[0.16em] sm:tracking-[0.2em] text-theme-muted uppercase block font-medium">
                         Tax • GST • Business Solutions
                     </span>
                 </div>
@@ -274,32 +326,65 @@
             </nav>
 
             <!-- Action Controls -->
-            <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3">
                 <!-- Theme Toggle Button -->
-                <button id="themeToggle" class="p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold hover:border-theme-gold transition-colors" title="Toggle Light / Dark Mode">
+                <button id="themeToggle" class="p-2 sm:p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold hover:border-theme-gold transition-colors touch-press min-w-[40px] min-h-[40px] flex items-center justify-center" title="Toggle Light / Dark Mode">
                     <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
                 </button>
 
                 <!-- Mobile Hamburger Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold transition-colors" title="Open Navigation Menu">
+                <button id="mobileMenuBtn" class="md:hidden p-2 sm:p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold transition-colors touch-press min-w-[40px] min-h-[40px] flex items-center justify-center" title="Open Navigation Menu">
                     <i data-lucide="menu" id="mobileMenuIcon" class="w-5 h-5"></i>
                 </button>
             </div>
 
         </div>
 
-        <!-- Mobile Navigation Drawer -->
-        <div id="mobileDrawer" class="hidden md:hidden border-t border-theme-subtle bg-theme-surface/98 px-6 py-5 space-y-3 shadow-xl">
-            <nav class="flex flex-col space-y-2 text-sm font-semibold text-theme-secondary">
-                <a href="#hero" class="mobile-nav-link py-2 border-b border-theme-subtle hover:text-theme-gold">Overview</a>
-                <a href="#services" class="mobile-nav-link py-2 border-b border-theme-subtle hover:text-theme-gold">Services Offered</a>
-                <a href="#consultation" class="mobile-nav-link py-2 hover:text-theme-gold">Consultation</a>
+        <!-- Luxury Mobile Navigation Drawer -->
+        <div id="mobileDrawer" class="hidden md:hidden border-t border-theme-subtle bg-theme-surface/98 backdrop-blur-2xl px-5 py-5 space-y-4 shadow-2xl transition-all duration-300">
+            <nav class="flex flex-col space-y-1 text-sm font-semibold text-theme-secondary">
+                <a href="#hero" class="mobile-nav-link flex items-center justify-between py-3 px-3.5 rounded-xl hover:bg-theme-card hover:text-theme-primary transition-colors">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="compass" class="w-4 h-4 text-theme-gold"></i>
+                        <span>Overview</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-theme-muted"></i>
+                </a>
+                <a href="#services" class="mobile-nav-link flex items-center justify-between py-3 px-3.5 rounded-xl hover:bg-theme-card hover:text-theme-primary transition-colors">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="layers" class="w-4 h-4 text-theme-gold"></i>
+                        <span>Services Offered</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-theme-muted"></i>
+                </a>
+                <a href="#consultation" class="mobile-nav-link flex items-center justify-between py-3 px-3.5 rounded-xl hover:bg-theme-card hover:text-theme-primary transition-colors">
+                    <span class="flex items-center gap-3">
+                        <i data-lucide="message-square" class="w-4 h-4 text-theme-gold"></i>
+                        <span>Consultation Desk</span>
+                    </span>
+                    <i data-lucide="chevron-right" class="w-4 h-4 text-theme-muted"></i>
+                </a>
             </nav>
+
+            <!-- Quick Connect in Drawer -->
+            <div class="pt-3 border-t border-theme-subtle grid grid-cols-2 gap-2.5">
+                <a href="https://wa.me/918830634354?text=Hello%20Jeet,%20I%20would%20like%20to%20consult%20with%20Gemini%20Consultants." 
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center gap-2 py-3 px-3 rounded-xl gold-button text-xs font-bold uppercase tracking-wider touch-press min-h-[44px]">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="tel:8830634354"
+                   class="inline-flex items-center justify-center gap-2 py-3 px-3 rounded-xl theme-card text-xs font-bold text-theme-primary hover:border-theme-gold touch-press min-h-[44px]">
+                    <i data-lucide="phone" class="w-4 h-4 text-theme-gold"></i>
+                    <span>Direct Call</span>
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Hero / Overview Section: Fora-Style Atmospheric Dark Background + Business Card -->
-    <section id="hero" class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden">
+    <section id="hero" class="relative pt-8 pb-16 sm:pt-20 sm:pb-28 overflow-hidden">
         
         <!-- Fora-Style Dark Ambient Architectural Wallpaper (Fades into pure black) -->
         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none dark:block hidden">
@@ -309,35 +394,35 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+            <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-14 items-center">
                 
                 <!-- Hero Left: Strategic Proposition -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
                     
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase gold-badge">
+                    <div class="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider uppercase gold-badge">
                         <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
                         <span>Tax, GST & Financial Advisory</span>
                     </div>
 
-                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-theme-primary leading-[1.08]">
+                    <h1 class="font-serif text-3xl sm:text-5xl lg:text-7xl font-normal tracking-tight text-theme-primary leading-[1.14] sm:leading-[1.08]">
                         From First Invoice to <br>
                         <span class="font-serif italic font-normal gold-gradient-text">Institutional Growth</span>
                     </h1>
 
-                    <p class="text-base sm:text-lg text-theme-secondary font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    <p class="text-sm sm:text-base lg:text-lg text-theme-secondary font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                         Navigating <strong>Direct Tax (DT) & GST</strong>, Section 44ADA 50% deductions for creators, turnkey partnership deeds u/s 40(b) for startups, co-operative housing society accounting, and bank-approved financial statements.
                     </p>
 
                     <!-- Clean CTAs -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1 sm:pt-2">
                         <a href="#services" 
-                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl gold-button text-sm tracking-wide shadow-lg">
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl gold-button text-sm tracking-wide shadow-lg touch-press min-h-[48px]">
                             <span>Explore Services</span>
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
                         </a>
 
                         <a href="#consultation" 
-                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl theme-card hover:border-theme-gold hover:bg-theme-surface/70 text-theme-primary font-semibold text-sm transition-all">
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl theme-card hover:border-theme-gold hover:bg-theme-surface/70 text-theme-primary font-semibold text-sm transition-all touch-press min-h-[48px]">
                             <i data-lucide="message-circle" class="w-4 h-4 text-theme-gold"></i>
                             <span>Start Communication</span>
                         </a>
@@ -347,20 +432,21 @@
 
                 <!-- Hero Right: Official Business Card (Clickable) -->
                 <div class="lg:col-span-5">
-                    <div class="relative mx-auto max-w-md">
+                    <div class="relative mx-auto max-w-sm sm:max-w-md">
                         
-                        <div id="cardTrigger" role="button" tabindex="0" class="group relative rounded-2xl border-2 border-theme-gold/40 hover:border-theme-gold shadow-2xl p-2 bg-theme-elevated overflow-hidden transition-all duration-300 hover:scale-[1.01]" title="Click to reveal all services and mandate">
+                        <div id="cardTrigger" role="button" tabindex="0" class="group relative rounded-2xl border-2 border-theme-gold/40 hover:border-theme-gold shadow-2xl p-1.5 sm:p-2 bg-theme-elevated overflow-hidden transition-all duration-300 hover:scale-[1.01] touch-press cursor-pointer" title="Tap to reveal all services and mandate">
                             <img src="business_card.png" alt="Gemini Consultants - Jeet Oza Business Card" class="w-full h-auto object-cover rounded-xl transition-transform duration-300">
                             
                             <!-- Sleek Floating Badge -->
-                            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-4 py-2 rounded-full gold-button text-xs font-bold uppercase tracking-wider shadow-lg opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all">
-                                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                                <span>Click Card to View Mandate</span>
+                            <div class="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full gold-button text-[10.5px] sm:text-xs font-bold uppercase tracking-wider shadow-lg opacity-95 group-hover:opacity-100 transition-all whitespace-nowrap">
+                                <i data-lucide="sparkles" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                                <span>Tap Card to View Mandate</span>
                             </div>
                         </div>
 
-                        <p class="text-[11px] text-center text-theme-muted mt-3 font-light">
-                            Tap the card to view our scope of services and credentials.
+                        <p class="text-[11px] text-center text-theme-muted mt-2.5 sm:mt-3 font-light flex items-center justify-center gap-1.5">
+                            <i data-lucide="touch-pad" class="w-3.5 h-3.5 text-theme-gold sm:hidden"></i>
+                            <span>Tap the card to view our scope of services and credentials.</span>
                         </p>
 
                     </div>
@@ -370,26 +456,33 @@
         </div>
     </section>
 
-    <!-- Services Offered Section (Responsive Grid Tabs - NO Horizontal Scroll) -->
-    <section id="services" class="py-24 bg-theme-surface border-y border-theme-subtle relative">
+    <!-- Services Offered Section (Responsive Horizontal Snap Track on Mobile, Grid on Desktop) -->
+    <section id="services" class="py-16 sm:py-24 bg-theme-surface border-y border-theme-subtle relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+            <div class="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3 mb-8 sm:mb-12">
                 <h2 class="font-serif text-3xl sm:text-5xl font-normal text-theme-primary tracking-tight">
                     Services Offered
                 </h2>
-                <p class="text-theme-secondary text-sm sm:text-base font-light leading-relaxed">
+                <p class="text-theme-secondary text-xs sm:text-base font-light leading-relaxed">
                     Direct Tax (DT) and GST compliance for creators and new businesses, co-operative housing society accounting, and bank loan CMA data.
                 </p>
             </div>
 
-            <!-- Responsive Grid Tabs (No horizontal scrolling!) -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 mb-8 sm:mb-10" id="practiceTabs">
-                <!-- Injected dynamically via services.js -->
+            <!-- Responsive Practice Tabs Track: Horizontal Snap-Scroll on Mobile, Grid on Desktop -->
+            <div class="relative mb-6 sm:mb-10">
+                <div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-2.5 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:gap-3 sm:overflow-visible" id="practiceTabs">
+                    <!-- Injected dynamically via services.js -->
+                </div>
+                <!-- Subtle mobile swipe indicator hint -->
+                <p class="text-[10.5px] text-theme-muted text-center mt-2.5 flex items-center justify-center gap-1.5 sm:hidden font-medium">
+                    <i data-lucide="arrow-left-right" class="w-3 h-3 text-theme-gold"></i>
+                    <span>Swipe horizontally to select practices</span>
+                </p>
             </div>
 
             <!-- Active Practice Content Box with Smooth Fade -->
-            <div id="practiceContent" class="rounded-3xl theme-card p-6 sm:p-12 border-theme-gold tab-pane-transition">
+            <div id="practiceContent" class="rounded-2xl sm:rounded-3xl theme-card p-5 sm:p-12 border-theme-gold tab-pane-transition">
                 <!-- Injected via services.js -->
             </div>
 
@@ -397,55 +490,54 @@
     </section>
 
     <!-- Single Authoritative Consultation Desk (No location mentioned) -->
-    <section id="consultation" class="py-24 bg-theme-page relative">
+    <section id="consultation" class="py-16 sm:py-24 bg-theme-page relative">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="rounded-3xl theme-card p-8 sm:p-14 text-center space-y-8 border-theme-gold">
+            <div class="rounded-2xl sm:rounded-3xl theme-card p-5 sm:p-14 text-center space-y-6 sm:space-y-8 border-theme-gold">
                 
-                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest gold-badge">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-widest gold-badge">
                     Direct Consultation Desk
                 </div>
 
-                <h2 class="font-serif text-3xl sm:text-5xl font-normal text-theme-primary tracking-tight">
+                <h2 class="font-serif text-2xl sm:text-5xl font-normal text-theme-primary tracking-tight">
                     Schedule Your Strategic Consultation
                 </h2>
 
-                <p class="text-theme-secondary text-sm sm:text-base font-light max-w-xl mx-auto leading-relaxed">
+                <p class="text-theme-secondary text-xs sm:text-base font-light max-w-xl mx-auto leading-relaxed">
                     Connect directly with <strong>Jeet Oza</strong> for direct tax advisory, GST compliance, startup formation, or society accounting.
                 </p>
 
                 <!-- Interactive Routing Form -->
-                <div class="max-w-xl mx-auto grid sm:grid-cols-2 gap-4 text-left">
+                <div class="max-w-xl mx-auto grid sm:grid-cols-2 gap-3 sm:gap-4 text-left">
                     <div>
-                        <label class="block text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Select Mandate</label>
-                        <select id="routerPractice" class="w-full px-4 py-3 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-xs focus:outline-none focus:border-theme-gold transition-colors">
+                        <label class="block text-[11px] sm:text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Select Mandate</label>
+                        <select id="routerPractice" class="w-full px-4 py-3.5 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-base sm:text-xs focus:outline-none focus:border-theme-gold transition-colors min-h-[48px]">
                             <!-- Injected dynamically from services.js -->
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Your Name / Entity</label>
-                        <input type="text" id="routerName" placeholder="Client Name or Business / Channel" class="w-full px-4 py-3 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-xs placeholder-theme-muted focus:outline-none focus:border-theme-gold transition-colors">
+                        <label class="block text-[11px] sm:text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Your Name / Entity</label>
+                        <input type="text" id="routerName" placeholder="Client Name or Business / Channel" class="w-full px-4 py-3.5 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-base sm:text-xs placeholder-theme-muted focus:outline-none focus:border-theme-gold transition-colors min-h-[48px]">
                     </div>
                 </div>
 
                 <!-- Launch Button: Start Communication -->
-                <div class="pt-2 max-w-xl mx-auto">
-                    <button id="routerSubmitBtn" class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl gold-button text-sm tracking-wide shadow-xl">
+                <div class="pt-1 sm:pt-2 max-w-xl mx-auto">
+                    <button id="routerSubmitBtn" class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl gold-button text-sm tracking-wide shadow-xl touch-press min-h-[50px]">
                         <i data-lucide="message-circle" class="w-5 h-5"></i>
                         <span>Start Communication</span>
                     </button>
                 </div>
 
-                <!-- Single Clear Contact Line (NO location mentioned) -->
-                <div class="pt-6 border-t border-theme-subtle flex flex-wrap items-center justify-center gap-6 text-xs text-theme-secondary">
-                    <a href="tel:8830634354" class="hover:text-theme-gold transition-colors flex items-center gap-1.5">
-                        <i data-lucide="phone" class="w-3.5 h-3.5 text-theme-gold"></i>
-                        <span>+91 88306 34354</span>
+                <!-- Touch-Friendly Direct Contact Pills (Zero location mentioned) -->
+                <div class="pt-6 border-t border-theme-subtle grid sm:grid-cols-2 gap-3 text-xs text-theme-secondary max-w-md mx-auto">
+                    <a href="tel:8830634354" class="p-3 rounded-xl bg-theme-surface border border-theme-subtle hover:border-theme-gold transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-press">
+                        <i data-lucide="phone" class="w-4 h-4 text-theme-gold"></i>
+                        <span class="font-semibold">+91 88306 34354</span>
                     </a>
-                    <span class="text-theme-muted">•</span>
-                    <a href="mailto:jeetoza12@protonmail.com" class="hover:text-theme-gold transition-colors flex items-center gap-1.5">
-                        <i data-lucide="mail" class="w-3.5 h-3.5 text-theme-gold"></i>
-                        <span>jeetoza12@protonmail.com</span>
+                    <a href="mailto:jeetoza12@protonmail.com" class="p-3 rounded-xl bg-theme-surface border border-theme-subtle hover:border-theme-gold transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-press">
+                        <i data-lucide="mail" class="w-4 h-4 text-theme-gold"></i>
+                        <span class="font-semibold">jeetoza12@protonmail.com</span>
                     </a>
                 </div>
 
@@ -458,22 +550,25 @@
         <p>&copy; 2026 Gemini Consultants. All Rights Reserved.</p>
     </footer>
 
-    <!-- Interactive Business Card Modal -->
-    <div id="cardModal" data-lenis-prevent class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300">
-        <div data-lenis-prevent class="relative w-full max-w-2xl bg-theme-elevated rounded-3xl border border-theme-gold p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[85vh] my-auto overscroll-contain">
+    <!-- Interactive Business Card Modal (Mobile Bottom Sheet) -->
+    <div id="cardModal" data-lenis-prevent class="fixed inset-0 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300">
+        <div data-lenis-prevent class="modal-sheet relative w-full max-w-2xl bg-theme-elevated rounded-t-3xl sm:rounded-3xl border border-theme-gold p-5 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] my-0 sm:my-auto overscroll-contain">
             
+            <!-- Mobile Pull Indicator / Grab Handle -->
+            <div class="w-12 h-1 bg-theme-muted/40 rounded-full mx-auto mb-3 sm:hidden"></div>
+
             <!-- Close Button -->
-            <button id="closeModalBtn" class="absolute top-5 right-5 p-2 rounded-full bg-theme-surface border border-theme-subtle text-theme-muted hover:text-theme-primary transition-colors" title="Close modal">
+            <button id="closeModalBtn" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-10 h-10 flex items-center justify-center rounded-full bg-theme-surface border border-theme-subtle text-theme-muted hover:text-theme-primary active:scale-95 transition-all z-10 touch-press" title="Close modal">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <div class="space-y-6">
+            <div class="space-y-5 sm:space-y-6">
                 
                 <!-- Modal Header -->
-                <div class="border-b border-theme-subtle pb-4">
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-theme-gold">Official Mandate</span>
-                    <h3 class="font-serif text-2xl sm:text-3xl text-theme-primary font-normal">Gemini Consultants</h3>
-                    <p class="text-xs text-theme-secondary">Jeet Oza • Tax Consultant & Financial Advisor</p>
+                <div class="border-b border-theme-subtle pb-3.5 sm:pb-4 pr-10">
+                    <span class="text-[9.5px] sm:text-[10px] font-bold uppercase tracking-widest text-theme-gold">Official Mandate</span>
+                    <h3 class="font-serif text-2xl sm:text-3xl text-theme-primary font-normal leading-tight">Gemini Consultants</h3>
+                    <p class="text-xs text-theme-secondary mt-0.5">Jeet Oza • Tax Consultant & Financial Advisor</p>
                 </div>
 
                 <!-- Business Card Display -->
@@ -482,10 +577,10 @@
                 </div>
 
                 <!-- Written Services Overview -->
-                <div class="space-y-3 pt-2">
-                    <h4 class="font-bold text-xs uppercase tracking-widest text-theme-gold">Scope of Professional Services</h4>
+                <div class="space-y-2.5 sm:space-y-3 pt-1">
+                    <h4 class="font-bold text-[11px] sm:text-xs uppercase tracking-widest text-theme-gold">Scope of Professional Services</h4>
                     
-                    <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                    <div class="grid sm:grid-cols-2 gap-2.5 sm:gap-3 text-xs">
                         <div class="p-3 rounded-xl bg-theme-surface border border-theme-subtle space-y-1">
                             <p class="font-bold text-theme-primary">⚖️ Direct Taxation (DT)</p>
                             <p class="text-theme-muted text-[11px]">ITR 1-7, Sec 44ADA (50% flat deduction), Sec 194J TDS refunds, Capital Gains.</p>
@@ -510,14 +605,14 @@
                 </div>
 
                 <!-- Action Buttons inside Modal -->
-                <div class="pt-3 flex flex-col sm:flex-row gap-3">
+                <div class="pt-2 sm:pt-3 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
                     <a href="https://wa.me/918830634354?text=Hello%20Jeet,%20I%20viewed%20your%20business%20card%20and%20would%20like%20to%20consult%20with%20Gemini%20Consultants." 
                        target="_blank" rel="noopener noreferrer"
-                       class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl gold-button text-xs uppercase tracking-wider">
+                       class="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl gold-button text-xs font-bold uppercase tracking-wider min-h-[46px] touch-press">
                         <i data-lucide="message-circle" class="w-4 h-4"></i>
                         <span>Start Communication on WhatsApp</span>
                     </a>
-                    <a href="tel:8830634354" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl theme-card text-xs text-theme-primary font-semibold hover:border-theme-gold">
+                    <a href="tel:8830634354" class="inline-flex items-center justify-center gap-2 py-3 px-5 rounded-xl theme-card text-xs text-theme-primary font-semibold hover:border-theme-gold min-h-[46px] touch-press">
                         <i data-lucide="phone" class="w-4 h-4 text-theme-gold"></i>
                         <span>Direct Call</span>
                     </a>
@@ -528,10 +623,10 @@
         </div>
     </div>
 
-    <!-- Floating Concierge Pill (Minimal, Non-intrusive) -->
+    <!-- Floating Concierge Pill (Mobile Safe-Area Inset) -->
     <a href="https://wa.me/918830634354?text=Hello%20Jeet,%20I%20would%20like%20to%20consult%20with%20Gemini%20Consultants." 
        target="_blank" rel="noopener noreferrer"
-       class="fixed bottom-6 right-6 z-30 flex items-center gap-2.5 px-4 py-3 rounded-full theme-card border-theme-gold text-theme-primary shadow-xl hover:scale-105 active:scale-95 transition-all group"
+       class="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-4 sm:right-6 sm:bottom-6 z-30 flex items-center gap-2.5 px-3.5 sm:px-4 py-2.5 sm:py-3 rounded-full theme-card border-theme-gold text-theme-primary shadow-2xl hover:scale-105 active:scale-95 transition-all group touch-press"
        title="Direct Advisory Consultation with Jeet Oza">
         <i data-lucide="message-circle" class="w-4 h-4 text-theme-gold"></i>
         <span class="text-xs font-semibold tracking-wide group-hover:text-theme-gold transition-colors">Start Communication</span>
@@ -567,7 +662,7 @@
             }
         }
 
-        // 2. Render Practice Tabs (Responsive Grid - NO Horizontal Scroll!)
+        // 2. Render Practice Tabs (Responsive Horizontal Snap-Scroll on Mobile, Grid on Desktop)
         function renderPracticeTabs() {
             const tabsBar = document.getElementById('practiceTabs');
             if (!tabsBar || !FIRM_CONFIG.practiceAreas) return;
@@ -577,14 +672,14 @@
                 return `
                     <button onclick="switchPractice('${p.id}')" 
                             type="button"
-                            class="p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 border flex flex-col justify-between gap-2.5 ${
+                            class="shrink-0 min-w-[145px] max-w-[175px] sm:min-w-0 sm:max-w-none snap-start p-3 sm:p-4 rounded-xl text-left transition-all duration-200 border flex flex-col justify-between gap-2.5 touch-press ${
                                 isActive 
                                 ? 'bg-theme-elevated border-theme-gold shadow-md ring-1 ring-theme-gold/30' 
                                 : 'bg-theme-card border-theme-subtle hover:border-theme-gold/50 opacity-85 hover:opacity-100'
                             }">
                         <div class="flex items-center justify-between w-full">
-                            <span class="text-[10px] font-bold uppercase tracking-widest ${isActive ? 'text-theme-gold' : 'text-theme-muted'}">${p.badge || 'Advisory'}</span>
-                            <i data-lucide="${p.icon || 'file-text'}" class="w-4 h-4 ${isActive ? 'text-theme-gold' : 'text-theme-muted'}"></i>
+                            <span class="text-[9.5px] sm:text-[10px] font-bold uppercase tracking-widest ${isActive ? 'text-theme-gold' : 'text-theme-muted'}">${p.badge || 'Advisory'}</span>
+                            <i data-lucide="${p.icon || 'file-text'}" class="w-3.5 h-3.5 sm:w-4 sm:h-4 ${isActive ? 'text-theme-gold' : 'text-theme-muted'}"></i>
                         </div>
                         <span class="text-xs sm:text-sm font-bold text-theme-primary leading-snug">${p.shortTitle || p.title}</span>
                     </button>
@@ -594,41 +689,41 @@
             renderPracticeContent();
         }
 
-        // 3. Render Practice Content (Smooth Fade)
+        // 3. Render Practice Content (Smooth Fade & Mobile Touch Targets)
         function renderPracticeContent() {
             const container = document.getElementById('practiceContent');
             const practice = FIRM_CONFIG.practiceAreas.find(p => p.id === currentTabId);
             if (!container || !practice) return;
 
             container.innerHTML = `
-                <div class="space-y-8">
-                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-theme-subtle pb-6">
+                <div class="space-y-6 sm:space-y-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6 border-b border-theme-subtle pb-5 sm:pb-6">
                         <div>
                             <span class="text-xs font-bold uppercase tracking-widest text-theme-gold">${practice.subtitle}</span>
-                            <h3 class="font-serif text-3xl sm:text-4xl font-normal text-theme-primary mt-1">${practice.title}</h3>
+                            <h3 class="font-serif text-2xl sm:text-4xl font-normal text-theme-primary mt-1">${practice.title}</h3>
                         </div>
                         <a href="https://wa.me/91${FIRM_CONFIG.brand.phone}?text=${encodeURIComponent('Hello Jeet, I would like to consult regarding ' + practice.title + ' with Gemini Consultants.')}" 
                            target="_blank" rel="noopener noreferrer"
-                           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-theme-gold text-theme-gold hover:bg-theme-surface font-semibold text-xs tracking-wider uppercase transition-all shrink-0">
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-theme-gold text-theme-gold hover:bg-theme-surface font-semibold text-xs tracking-wider uppercase transition-all shrink-0 min-h-[44px] touch-press">
                             <i data-lucide="message-square" class="w-4 h-4"></i>
                             <span>Inquire</span>
                         </a>
                     </div>
 
-                    <p class="text-sm text-theme-secondary max-w-3xl leading-relaxed font-light">
+                    <p class="text-xs sm:text-sm text-theme-secondary max-w-3xl leading-relaxed font-light">
                         ${practice.summary}
                     </p>
 
                     <!-- 6-Grid Deliverables Breakdown -->
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 pt-1 sm:pt-2">
                         ${practice.deliverables.map(d => `
-                            <div class="p-6 rounded-2xl bg-theme-surface border border-theme-subtle hover:border-theme-gold transition-all duration-200 flex flex-col justify-between group">
-                                <div class="space-y-3">
-                                    <div class="w-8 h-8 rounded-lg gold-badge flex items-center justify-center">
-                                        <i data-lucide="check" class="w-4 h-4"></i>
+                            <div class="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-theme-surface border border-theme-subtle hover:border-theme-gold transition-all duration-200 flex flex-col justify-between group">
+                                <div class="space-y-2.5 sm:space-y-3">
+                                    <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg gold-badge flex items-center justify-center">
+                                        <i data-lucide="check" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
                                     </div>
-                                    <h4 class="font-bold text-sm text-theme-primary group-hover:text-theme-gold transition-colors">${d.head}</h4>
-                                    <p class="text-xs text-theme-muted leading-relaxed font-light">${d.desc}</p>
+                                    <h4 class="font-bold text-xs sm:text-sm text-theme-primary group-hover:text-theme-gold transition-colors">${d.head}</h4>
+                                    <p class="text-[11px] sm:text-xs text-theme-muted leading-relaxed font-light">${d.desc}</p>
                                 </div>
                             </div>
                         `).join('')}
@@ -648,6 +743,15 @@
                 container.classList.remove('tab-pane-transition');
                 void container.offsetWidth; // trigger reflow
                 container.classList.add('tab-pane-transition');
+            }
+
+            // Smoothly center active tab into view horizontally on mobile
+            const tabsBar = document.getElementById('practiceTabs');
+            if (tabsBar && window.innerWidth < 640) {
+                const activeBtn = tabsBar.querySelector(`[onclick="switchPractice('${id}')"]`);
+                if (activeBtn) {
+                    activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
             }
         }
 
@@ -717,43 +821,58 @@
             });
         }
 
-        // 6. Light / Dark Theme Switcher with Persistence (Default: Light Mode)
+        // 6. Light / Dark Theme Switcher with Persistence & Dynamic Mobile Status Bar
         function initTheme() {
             const toggle = document.getElementById('themeToggle');
             const icon = document.getElementById('themeIcon');
             const html = document.documentElement;
+            const metaTheme = document.getElementById('metaThemeColor');
+
+            const applyTheme = (isDark) => {
+                if (isDark) {
+                    html.classList.add('dark');
+                    icon.setAttribute('data-lucide', 'sun');
+                    if (metaTheme) metaTheme.setAttribute('content', '#000000');
+                } else {
+                    html.classList.remove('dark');
+                    icon.setAttribute('data-lucide', 'moon');
+                    if (metaTheme) metaTheme.setAttribute('content', '#FBF9F5');
+                }
+                renderIcons();
+            };
 
             const savedTheme = localStorage.getItem('gc-theme');
-            if (savedTheme === 'dark') {
-                html.classList.add('dark');
-                icon.setAttribute('data-lucide', 'sun');
-            } else {
-                html.classList.remove('dark');
-                icon.setAttribute('data-lucide', 'moon');
-            }
+            applyTheme(savedTheme === 'dark');
 
             toggle.addEventListener('click', () => {
-                html.classList.toggle('dark');
-                const isDark = html.classList.contains('dark');
+                const isDark = !html.classList.contains('dark');
                 localStorage.setItem('gc-theme', isDark ? 'dark' : 'light');
-                icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
-                renderIcons();
+                applyTheme(isDark);
             });
         }
 
-        // 7. Mobile Navigation Drawer
+        // 7. Mobile Navigation Drawer with Icon Morphing
         function initMobileMenu() {
             const btn = document.getElementById('mobileMenuBtn');
             const drawer = document.getElementById('mobileDrawer');
+            const icon = document.getElementById('mobileMenuIcon');
             if (!btn || !drawer) return;
 
             btn.addEventListener('click', () => {
-                drawer.classList.toggle('hidden');
+                const isHidden = drawer.classList.toggle('hidden');
+                if (icon) {
+                    icon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
+                    renderIcons();
+                }
             });
 
             document.querySelectorAll('.mobile-nav-link').forEach(link => {
                 link.addEventListener('click', () => {
                     drawer.classList.add('hidden');
+                    if (icon) {
+                        icon.setAttribute('data-lucide', 'menu');
+                        renderIcons();
+                    }
                 });
             });
         }
