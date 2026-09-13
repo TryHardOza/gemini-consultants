@@ -17,13 +17,7 @@ const FIRM_CONFIG = {
         email: "jeetoza12@protonmail.com"
     },
 
-    // Trust Metrics for Hero
-    stats: [
-        { label: "Audit Accuracy Rate", value: "100%", sub: "Full AIS/TIS Reconciliation" },
-        { label: "Creator Tax Savings", value: "Sec 44ADA", sub: "Flat 50% Deemed Profit" },
-        { label: "Startup Onboarding", value: "Turnkey", sub: "Deeds u/s 40(b) & MSME" },
-        { label: "Notice Philosophy", value: "Zero Notice", sub: "Pre-emptive Dept. Defense" }
-    ],
+
 
     // 5 Comprehensive Practice Verticals
     practiceAreas: [

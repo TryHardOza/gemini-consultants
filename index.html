@@ -504,10 +504,7 @@
                         </a>
                     </div>
 
-                    <!-- Trust Metrics Grid (Rendered from services.js) -->
-                    <div id="heroStats" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-theme-subtle text-left">
-                        <!-- Injected dynamically via services.js -->
-                    </div>
+
 
                 </div>
 
@@ -770,19 +767,7 @@
             }
         }
 
-        // 2. Render Hero Trust Metrics Strip
-        function renderHeroStats() {
-            const container = document.getElementById('heroStats');
-            if (!container || !FIRM_CONFIG.stats) return;
 
-            container.innerHTML = FIRM_CONFIG.stats.map(s => `
-                <div class="p-2.5 sm:p-3 rounded-xl bg-theme-surface/70 border border-theme-subtle hover:border-theme-gold transition-all duration-200 group">
-                    <div class="font-display font-bold text-sm sm:text-base text-theme-primary group-hover:text-theme-gold transition-colors">${s.value}</div>
-                    <div class="text-[10px] sm:text-xs font-semibold text-theme-secondary leading-tight mt-0.5">${s.label}</div>
-                    <div class="text-[9px] sm:text-[10px] text-theme-muted font-light mt-0.5 truncate">${s.sub}</div>
-                </div>
-            `).join('');
-        }
 
         // 3. Render Practice Tabs (Responsive Horizontal Snap-Scroll on Mobile, Grid on Desktop)
         function renderPracticeTabs() {
@@ -1111,7 +1096,6 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             initLenis();
-            renderHeroStats();
             renderPracticeTabs();
             initTabsKeyboard();
             initRouter();
