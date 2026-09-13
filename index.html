@@ -554,8 +554,8 @@
             </div>
 
             <!-- Responsive Practice Tabs Track: Horizontal Snap-Scroll on Mobile, Grid on Desktop -->
-            <div class="relative mb-6 sm:mb-10 overflow-hidden sm:overflow-visible">
-                <div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-2.5 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:gap-3 sm:overflow-visible" id="practiceTabs" role="tablist" aria-label="Practice Areas">
+            <div class="relative mb-6 sm:mb-10">
+                <div class="relative flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-2.5 pb-2 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:gap-3 sm:overflow-visible" id="practiceTabs" role="tablist" aria-label="Practice Areas">
                     <!-- Injected dynamically via services.js -->
                 </div>
                 <!-- Subtle mobile swipe indicator hint -->
@@ -885,8 +885,12 @@
             if (tabsBar && window.innerWidth < 640) {
                 const activeBtn = document.getElementById(`tab-${id}`);
                 if (activeBtn) {
-                    const scrollTarget = activeBtn.offsetLeft - (tabsBar.clientWidth / 2) + (activeBtn.clientWidth / 2);
-                    tabsBar.scrollTo({ left: Math.max(0, scrollTarget), behavior: 'smooth' });
+                    if (id === (FIRM_CONFIG.practiceAreas && FIRM_CONFIG.practiceAreas[0]?.id)) {
+                        tabsBar.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        const scrollTarget = activeBtn.offsetLeft - (tabsBar.clientWidth / 2) + (activeBtn.clientWidth / 2);
+                        tabsBar.scrollTo({ left: Math.max(0, scrollTarget), behavior: 'smooth' });
+                    }
                 }
             }
         }
