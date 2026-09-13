@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Consultants | Tax, GST & Business Advisory</title>
+    <meta name="description" content="Gemini Consultants (Jeet Oza). Strategic Direct Tax (DT), GST, New Business Setup, Co-op Housing Society Accounting, and Bank Loan CMA Financials.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    
+    <!-- Open Graph & WhatsApp Link Preview Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gemini Consultants | Tax, GST & Business Advisory">
+    <meta property="og:description" content="Strategic Direct Tax (DT), Section 44ADA 50% deductions for creators, GST compliance, and startup formation.">
+    <meta property="og:image" content="business_card.png">
+    
+    <!-- Ultra-Crisp Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+                        display: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Lenis Smooth Momentum Scroll CDN -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+    <style>
+        /* ==========================================================================
+           COLOR ARCHITECTURE: PURE OLED BLACK & EDITORIAL IVORY
+           Zero blue/navy muddy tint. True deep blacks, crisp white, champagne gold.
+           ========================================================================== */
+        
+        :root {
+            /* LIGHT MODE: Editorial Warm Ivory & Rich Antique Bronze */
+            --bg-page: #FBF9F5;
+            --bg-surface: #F3EFE8;
+            --bg-card: #FFFFFF;
+            --bg-card-glass: rgba(255, 255, 255, 0.96);
+            --bg-elevated: #FFFFFF;
+            --bg-input: #F4EFEB;
+            
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-muted: #64748B;
+            
+            --border-subtle: rgba(15, 23, 42, 0.08);
+            --border-medium: rgba(15, 23, 42, 0.16);
+            --border-gold: rgba(158, 119, 54, 0.45);
+            
+            --accent-gold: #9E7736;
+            --accent-gold-hover: #836025;
+            --accent-gold-light: #C5A880;
+            --accent-gold-bg: rgba(158, 119, 54, 0.09);
+            --accent-gold-text: #FFFFFF;
+            --accent-gold-gradient: linear-gradient(135deg, #9E7736 0%, #C5A880 50%, #7D5B23 100%);
+            
+            --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.07), 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+            --shadow-elevated: 0 20px 40px -15px rgba(0, 0, 0, 0.12);
+            --grid-line: rgba(0, 0, 0, 0.035);
+        }
+
+        .dark {
+            /* DARK MODE: PURE LUXURY OLED BLACK & CHAMPAGNE BRASS (Fora Style) */
+            --bg-page: #000000;
+            --bg-surface: #080808;
+            --bg-card: #101010;
+            --bg-card-glass: rgba(14, 14, 14, 0.92);
+            --bg-elevated: #161616;
+            --bg-input: #090909;
+            
+            --text-primary: #FFFFFF;
+            --text-secondary: #D4D4D8;
+            --text-muted: #8E8E93;
+            
+            --border-subtle: rgba(255, 255, 255, 0.1);
+            --border-medium: rgba(255, 255, 255, 0.18);
+            --border-gold: rgba(212, 175, 55, 0.4);
+            
+            --accent-gold: #D4AF37;
+            --accent-gold-hover: #E5C558;
+            --accent-gold-light: #F3E5AB;
+            --accent-gold-bg: rgba(212, 175, 55, 0.14);
+            --accent-gold-text: #000000;
+            --accent-gold-gradient: linear-gradient(135deg, #FFF8DC 0%, #D4AF37 50%, #A37F2C 100%);
+            
+            --shadow-card: 0 20px 45px -15px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.06);
+            --shadow-elevated: 0 30px 60px -15px rgba(0, 0, 0, 0.98);
+            --grid-line: rgba(255, 255, 255, 0.025);
+        }
+
+        /* Typography & Rendering Optimization (Crisp Font Pixels) */
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            cursor: default;
+        }
+
+        body {
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        a, button, select, input, textarea, [role="button"] {
+            cursor: pointer;
+        }
+
+        /* Color Utility Classes */
+        .text-theme-primary { color: var(--text-primary); }
+        .text-theme-secondary { color: var(--text-secondary); }
+        .text-theme-muted { color: var(--text-muted); }
+        .text-theme-gold { color: var(--accent-gold); }
+
+        .bg-theme-page { background-color: var(--bg-page); }
+        .bg-theme-surface { background-color: var(--bg-surface); }
+        .bg-theme-card { background-color: var(--bg-card-glass); }
+        .bg-theme-elevated { background-color: var(--bg-elevated); }
+        .bg-theme-input { background-color: var(--bg-input); }
+
+        .border-theme-subtle { border-color: var(--border-subtle); }
+        .border-theme-medium { border-color: var(--border-medium); }
+        .border-theme-gold { border-color: var(--border-gold); }
+
+        .gold-gradient-text {
+            background: var(--accent-gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-button {
+            background-color: var(--accent-gold);
+            color: var(--accent-gold-text);
+            font-weight: 700;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .gold-button:hover {
+            background-color: var(--accent-gold-hover);
+        }
+
+        .gold-badge {
+            background-color: var(--accent-gold-bg);
+            color: var(--accent-gold);
+            border: 1px solid var(--border-gold);
+        }
+
+        .theme-card {
+            background-color: var(--bg-card-glass);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.25s ease;
+        }
+        .theme-card:hover {
+            border-color: var(--border-gold);
+        }
+
+        .subtle-grid {
+            background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+                              linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+
+        /* Native Form Elements */
+        select, input {
+            background-color: var(--bg-input);
+            color: var(--text-primary);
+            border-color: var(--border-subtle);
+        }
+        select option {
+            background-color: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        /* Section Scroll Offsets for Sticky Header */
+        section {
+            scroll-margin-top: 5rem;
+        }
+
+        /* Tab Content Smooth Fade */
+        .tab-pane-transition {
+            animation: tabFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes tabFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Lenis Smooth Scroll Configuration */
+        html.lenis, html.lenis body {
+            height: auto;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-amber-600 selection:text-white">
+
+    <!-- Executive Sticky Navigation -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-theme-surface/90 border-b border-theme-subtle transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo Mark -->
+            <a href="#" class="flex items-center gap-3.5 group">
+                <div class="w-10 h-10 rounded-lg bg-theme-elevated border border-theme-gold flex items-center justify-center text-theme-gold font-display font-bold text-lg shadow-sm group-hover:scale-105 transition-transform">
+                    GC
+                </div>
+                <div>
+                    <span class="font-display text-base sm:text-lg tracking-widest uppercase font-bold text-theme-primary block leading-tight">
+                        GEMINI <span class="text-theme-gold">CONSULTANTS</span>
+                    </span>
+                    <span class="text-[9px] sm:text-[10px] tracking-[0.2em] text-theme-muted uppercase block font-medium">
+                        Tax • GST • Business Solutions
+                    </span>
+                </div>
+            </a>
+
+            <!-- Clean Desktop Navigation Tabs -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-theme-secondary">
+                <a href="#hero" class="hover:text-theme-gold transition-colors">Overview</a>
+                <a href="#services" class="hover:text-theme-gold transition-colors">Services Offered</a>
+                <a href="#consultation" class="hover:text-theme-gold transition-colors">Consultation</a>
+            </nav>
+
+            <!-- Action Controls -->
+            <div class="flex items-center gap-3">
+                <!-- Theme Toggle Button -->
+                <button id="themeToggle" class="p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold hover:border-theme-gold transition-colors" title="Toggle Light / Dark Mode">
+                    <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold transition-colors" title="Open Navigation Menu">
+                    <i data-lucide="menu" id="mobileMenuIcon" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobileDrawer" class="hidden md:hidden border-t border-theme-subtle bg-theme-surface/98 px-6 py-5 space-y-3 shadow-xl">
+            <nav class="flex flex-col space-y-2 text-sm font-semibold text-theme-secondary">
+                <a href="#hero" class="mobile-nav-link py-2 border-b border-theme-subtle hover:text-theme-gold">Overview</a>
+                <a href="#services" class="mobile-nav-link py-2 border-b border-theme-subtle hover:text-theme-gold">Services Offered</a>
+                <a href="#consultation" class="mobile-nav-link py-2 hover:text-theme-gold">Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero / Overview Section: Fora-Style Atmospheric Dark Background + Business Card -->
+    <section id="hero" class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden">
+        
+        <!-- Fora-Style Dark Ambient Architectural Wallpaper (Fades into pure black) -->
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none dark:block hidden">
+            <img src="hero_dark_bg.jpg" alt="" class="w-full h-full object-cover object-center opacity-45 mix-blend-screen scale-105 transition-transform duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black/90"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+                
+                <!-- Hero Left: Strategic Proposition -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase gold-badge">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        <span>Tax, GST & Financial Advisory</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-theme-primary leading-[1.08]">
+                        From First Invoice to <br>
+                        <span class="font-serif italic font-normal gold-gradient-text">Institutional Growth</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-theme-secondary font-light max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Navigating <strong>Direct Tax (DT) & GST</strong>, Section 44ADA 50% deductions for creators, turnkey partnership deeds u/s 40(b) for startups, co-operative housing society accounting, and bank-approved financial statements.
+                    </p>
+
+                    <!-- Clean CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#services" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl gold-button text-sm tracking-wide shadow-lg">
+                            <span>Explore Services</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+
+                        <a href="#consultation" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl theme-card hover:border-theme-gold hover:bg-theme-surface/70 text-theme-primary font-semibold text-sm transition-all">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-theme-gold"></i>
+                            <span>Start Communication</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Hero Right: Official Business Card (Clickable) -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md">
+                        
+                        <div id="cardTrigger" role="button" tabindex="0" class="group relative rounded-2xl border-2 border-theme-gold/40 hover:border-theme-gold shadow-2xl p-2 bg-theme-elevated overflow-hidden transition-all duration-300 hover:scale-[1.01]" title="Click to reveal all services and mandate">
+                            <img src="business_card.png" alt="Gemini Consultants - Jeet Oza Business Card" class="w-full h-auto object-cover rounded-xl transition-transform duration-300">
+                            
+                            <!-- Sleek Floating Badge -->
+                            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center gap-2 px-4 py-2 rounded-full gold-button text-xs font-bold uppercase tracking-wider shadow-lg opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                                <span>Click Card to View Mandate</span>
+                            </div>
+                        </div>
+
+                        <p class="text-[11px] text-center text-theme-muted mt-3 font-light">
+                            Tap the card to view our scope of services and credentials.
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Offered Section (Responsive Grid Tabs - NO Horizontal Scroll) -->
+    <section id="services" class="py-24 bg-theme-surface border-y border-theme-subtle relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+                <h2 class="font-serif text-3xl sm:text-5xl font-normal text-theme-primary tracking-tight">
+                    Services Offered
+                </h2>
+                <p class="text-theme-secondary text-sm sm:text-base font-light leading-relaxed">
+                    Direct Tax (DT) and GST compliance for creators and new businesses, co-operative housing society accounting, and bank loan CMA data.
+                </p>
+            </div>
+
+            <!-- Responsive Grid Tabs (No horizontal scrolling!) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 mb-8 sm:mb-10" id="practiceTabs">
+                <!-- Injected dynamically via services.js -->
+            </div>
+
+            <!-- Active Practice Content Box with Smooth Fade -->
+            <div id="practiceContent" class="rounded-3xl theme-card p-6 sm:p-12 border-theme-gold tab-pane-transition">
+                <!-- Injected via services.js -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Single Authoritative Consultation Desk (No location mentioned) -->
+    <section id="consultation" class="py-24 bg-theme-page relative">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="rounded-3xl theme-card p-8 sm:p-14 text-center space-y-8 border-theme-gold">
+                
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest gold-badge">
+                    Direct Consultation Desk
+                </div>
+
+                <h2 class="font-serif text-3xl sm:text-5xl font-normal text-theme-primary tracking-tight">
+                    Schedule Your Strategic Consultation
+                </h2>
+
+                <p class="text-theme-secondary text-sm sm:text-base font-light max-w-xl mx-auto leading-relaxed">
+                    Connect directly with <strong>Jeet Oza</strong> for direct tax advisory, GST compliance, startup formation, or society accounting.
+                </p>
+
+                <!-- Interactive Routing Form -->
+                <div class="max-w-xl mx-auto grid sm:grid-cols-2 gap-4 text-left">
+                    <div>
+                        <label class="block text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Select Mandate</label>
+                        <select id="routerPractice" class="w-full px-4 py-3 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-xs focus:outline-none focus:border-theme-gold transition-colors">
+                            <!-- Injected dynamically from services.js -->
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Your Name / Entity</label>
+                        <input type="text" id="routerName" placeholder="Client Name or Business / Channel" class="w-full px-4 py-3 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-xs placeholder-theme-muted focus:outline-none focus:border-theme-gold transition-colors">
+                    </div>
+                </div>
+
+                <!-- Launch Button: Start Communication -->
+                <div class="pt-2 max-w-xl mx-auto">
+                    <button id="routerSubmitBtn" class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl gold-button text-sm tracking-wide shadow-xl">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        <span>Start Communication</span>
+                    </button>
+                </div>
+
+                <!-- Single Clear Contact Line (NO location mentioned) -->
+                <div class="pt-6 border-t border-theme-subtle flex flex-wrap items-center justify-center gap-6 text-xs text-theme-secondary">
+                    <a href="tel:8830634354" class="hover:text-theme-gold transition-colors flex items-center gap-1.5">
+                        <i data-lucide="phone" class="w-3.5 h-3.5 text-theme-gold"></i>
+                        <span>+91 88306 34354</span>
+                    </a>
+                    <span class="text-theme-muted">•</span>
+                    <a href="mailto:jeetoza12@protonmail.com" class="hover:text-theme-gold transition-colors flex items-center gap-1.5">
+                        <i data-lucide="mail" class="w-3.5 h-3.5 text-theme-gold"></i>
+                        <span>jeetoza12@protonmail.com</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Clean Minimalist Footer: Only Copyright, Nothing Else -->
+    <footer class="bg-theme-page border-t border-theme-subtle py-8 text-center text-xs text-theme-muted">
+        <p>&copy; 2026 Gemini Consultants. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Interactive Business Card Modal -->
+    <div id="cardModal" data-lenis-prevent class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300">
+        <div data-lenis-prevent class="relative w-full max-w-2xl bg-theme-elevated rounded-3xl border border-theme-gold p-6 sm:p-8 shadow-2xl overflow-y-auto max-h-[85vh] my-auto overscroll-contain">
+            
+            <!-- Close Button -->
+            <button id="closeModalBtn" class="absolute top-5 right-5 p-2 rounded-full bg-theme-surface border border-theme-subtle text-theme-muted hover:text-theme-primary transition-colors" title="Close modal">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+
+            <div class="space-y-6">
+                
+                <!-- Modal Header -->
+                <div class="border-b border-theme-subtle pb-4">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-theme-gold">Official Mandate</span>
+                    <h3 class="font-serif text-2xl sm:text-3xl text-theme-primary font-normal">Gemini Consultants</h3>
+                    <p class="text-xs text-theme-secondary">Jeet Oza • Tax Consultant & Financial Advisor</p>
+                </div>
+
+                <!-- Business Card Display -->
+                <div class="rounded-xl overflow-hidden border border-theme-gold/40 shadow-lg">
+                    <img src="business_card.png" alt="Gemini Consultants Card" class="w-full h-auto object-cover">
+                </div>
+
+                <!-- Written Services Overview -->
+                <div class="space-y-3 pt-2">
+                    <h4 class="font-bold text-xs uppercase tracking-widest text-theme-gold">Scope of Professional Services</h4>
+                    
+                    <div class="grid sm:grid-cols-2 gap-3 text-xs">
+                        <div class="p-3 rounded-xl bg-theme-surface border border-theme-subtle space-y-1">
+                            <p class="font-bold text-theme-primary">⚖️ Direct Taxation (DT)</p>
+                            <p class="text-theme-muted text-[11px]">ITR 1-7, Sec 44ADA (50% flat deduction), Sec 194J TDS refunds, Capital Gains.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-theme-surface border border-theme-subtle space-y-1">
+                            <p class="font-bold text-theme-primary">📊 Goods & Services Tax (GST)</p>
+                            <p class="text-theme-muted text-[11px]">Registrations, GSTR-1 & 3B, 2B ITC matching, GST LUT zero-tax export.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-theme-surface border border-theme-subtle space-y-1">
+                            <p class="font-bold text-theme-primary">🚀 Startup & Business Setup</p>
+                            <p class="text-theme-muted text-[11px]">Partnership deeds u/s 40(b), MSME Udyam, Shop Act Gumasta, Banking.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-theme-surface border border-theme-subtle space-y-1">
+                            <p class="font-bold text-theme-primary">🏢 Co-op Societies (CHS)</p>
+                            <p class="text-theme-muted text-[11px]">Maintenance billing, computerized accounts, Form I/J registers, Audit.</p>
+                        </div>
+                        <div class="p-3 rounded-xl bg-theme-surface border border-theme-subtle space-y-1 sm:col-span-2">
+                            <p class="font-bold text-theme-primary">🏛️ Accounting & Bank Loan CMA</p>
+                            <p class="text-theme-muted text-[11px]">Credit Monitoring Arrangement (CMA) data reports for CC/OD loans, ICAI statements.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons inside Modal -->
+                <div class="pt-3 flex flex-col sm:flex-row gap-3">
+                    <a href="https://wa.me/918830634354?text=Hello%20Jeet,%20I%20viewed%20your%20business%20card%20and%20would%20like%20to%20consult%20with%20Gemini%20Consultants." 
+                       target="_blank" rel="noopener noreferrer"
+                       class="flex-1 inline-flex items-center justify-center gap-2 py-3 rounded-xl gold-button text-xs uppercase tracking-wider">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        <span>Start Communication on WhatsApp</span>
+                    </a>
+                    <a href="tel:8830634354" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl theme-card text-xs text-theme-primary font-semibold hover:border-theme-gold">
+                        <i data-lucide="phone" class="w-4 h-4 text-theme-gold"></i>
+                        <span>Direct Call</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating Concierge Pill (Minimal, Non-intrusive) -->
+    <a href="https://wa.me/918830634354?text=Hello%20Jeet,%20I%20would%20like%20to%20consult%20with%20Gemini%20Consultants." 
+       target="_blank" rel="noopener noreferrer"
+       class="fixed bottom-6 right-6 z-30 flex items-center gap-2.5 px-4 py-3 rounded-full theme-card border-theme-gold text-theme-primary shadow-xl hover:scale-105 active:scale-95 transition-all group"
+       title="Direct Advisory Consultation with Jeet Oza">
+        <i data-lucide="message-circle" class="w-4 h-4 text-theme-gold"></i>
+        <span class="text-xs font-semibold tracking-wide group-hover:text-theme-gold transition-colors">Start Communication</span>
+    </a>
+
+    <!-- Load App Controller & Logic -->
+    <script src="services.js"></script>
+    <script>
+        let currentTabId = FIRM_CONFIG.practiceAreas[0].id;
+
+        function renderIcons() {
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        // 1. Initialize Lenis Smooth Scroll
+        let lenis = null;
+        function initLenis() {
+            if (typeof Lenis !== 'undefined') {
+                lenis = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    smoothWheel: true,
+                    smoothTouch: false
+                });
+
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            }
+        }
+
+        // 2. Render Practice Tabs (Responsive Grid - NO Horizontal Scroll!)
+        function renderPracticeTabs() {
+            const tabsBar = document.getElementById('practiceTabs');
+            if (!tabsBar || !FIRM_CONFIG.practiceAreas) return;
+
+            tabsBar.innerHTML = FIRM_CONFIG.practiceAreas.map(p => {
+                const isActive = p.id === currentTabId;
+                return `
+                    <button onclick="switchPractice('${p.id}')" 
+                            type="button"
+                            class="p-3.5 sm:p-4 rounded-xl text-left transition-all duration-200 border flex flex-col justify-between gap-2.5 ${
+                                isActive 
+                                ? 'bg-theme-elevated border-theme-gold shadow-md ring-1 ring-theme-gold/30' 
+                                : 'bg-theme-card border-theme-subtle hover:border-theme-gold/50 opacity-85 hover:opacity-100'
+                            }">
+                        <div class="flex items-center justify-between w-full">
+                            <span class="text-[10px] font-bold uppercase tracking-widest ${isActive ? 'text-theme-gold' : 'text-theme-muted'}">${p.badge || 'Advisory'}</span>
+                            <i data-lucide="${p.icon || 'file-text'}" class="w-4 h-4 ${isActive ? 'text-theme-gold' : 'text-theme-muted'}"></i>
+                        </div>
+                        <span class="text-xs sm:text-sm font-bold text-theme-primary leading-snug">${p.shortTitle || p.title}</span>
+                    </button>
+                `;
+            }).join('');
+
+            renderPracticeContent();
+        }
+
+        // 3. Render Practice Content (Smooth Fade)
+        function renderPracticeContent() {
+            const container = document.getElementById('practiceContent');
+            const practice = FIRM_CONFIG.practiceAreas.find(p => p.id === currentTabId);
+            if (!container || !practice) return;
+
+            container.innerHTML = `
+                <div class="space-y-8">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-theme-subtle pb-6">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-theme-gold">${practice.subtitle}</span>
+                            <h3 class="font-serif text-3xl sm:text-4xl font-normal text-theme-primary mt-1">${practice.title}</h3>
+                        </div>
+                        <a href="https://wa.me/91${FIRM_CONFIG.brand.phone}?text=${encodeURIComponent('Hello Jeet, I would like to consult regarding ' + practice.title + ' with Gemini Consultants.')}" 
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-theme-gold text-theme-gold hover:bg-theme-surface font-semibold text-xs tracking-wider uppercase transition-all shrink-0">
+                            <i data-lucide="message-square" class="w-4 h-4"></i>
+                            <span>Inquire</span>
+                        </a>
+                    </div>
+
+                    <p class="text-sm text-theme-secondary max-w-3xl leading-relaxed font-light">
+                        ${practice.summary}
+                    </p>
+
+                    <!-- 6-Grid Deliverables Breakdown -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+                        ${practice.deliverables.map(d => `
+                            <div class="p-6 rounded-2xl bg-theme-surface border border-theme-subtle hover:border-theme-gold transition-all duration-200 flex flex-col justify-between group">
+                                <div class="space-y-3">
+                                    <div class="w-8 h-8 rounded-lg gold-badge flex items-center justify-center">
+                                        <i data-lucide="check" class="w-4 h-4"></i>
+                                    </div>
+                                    <h4 class="font-bold text-sm text-theme-primary group-hover:text-theme-gold transition-colors">${d.head}</h4>
+                                    <p class="text-xs text-theme-muted leading-relaxed font-light">${d.desc}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            renderIcons();
+        }
+
+        function switchPractice(id) {
+            if (currentTabId === id) return;
+            currentTabId = id;
+            renderPracticeTabs();
+            
+            const container = document.getElementById('practiceContent');
+            if (container) {
+                container.classList.remove('tab-pane-transition');
+                void container.offsetWidth; // trigger reflow
+                container.classList.add('tab-pane-transition');
+            }
+        }
+
+        // 4. Populate Consultation Dropdown
+        function initRouter() {
+            const select = document.getElementById('routerPractice');
+            const btn = document.getElementById('routerSubmitBtn');
+            if (select && FIRM_CONFIG.consultationOptions) {
+                select.innerHTML = FIRM_CONFIG.consultationOptions.map(opt => `
+                    <option value="${opt.value}">${opt.label}</option>
+                `).join('');
+            }
+
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    const practice = select ? select.value : 'General Advisory';
+                    const name = document.getElementById('routerName').value.trim();
+                    let msg = `Hello Jeet,`;
+                    if (name) msg += ` this is ${name}.`;
+                    msg += ` I would like to schedule a strategic consultation regarding ${practice} with Gemini Consultants.`;
+
+                    const url = `https://wa.me/91${FIRM_CONFIG.brand.phone}?text=${encodeURIComponent(msg)}`;
+                    window.open(url, '_blank');
+                });
+            }
+        }
+
+        // 5. Business Card Interactive Modal
+        function initCardModal() {
+            const trigger = document.getElementById('cardTrigger');
+            const modal = document.getElementById('cardModal');
+            const closeBtn = document.getElementById('closeModalBtn');
+
+            if (!trigger || !modal) return;
+
+            const openModal = () => {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                if (lenis) lenis.stop();
+                renderIcons();
+            };
+
+            const closeModal = () => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+                if (lenis) lenis.start();
+            };
+
+            trigger.addEventListener('click', openModal);
+            trigger.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openModal();
+                }
+            });
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        }
+
+        // 6. Light / Dark Theme Switcher with Persistence (Default: Light Mode)
+        function initTheme() {
+            const toggle = document.getElementById('themeToggle');
+            const icon = document.getElementById('themeIcon');
+            const html = document.documentElement;
+
+            const savedTheme = localStorage.getItem('gc-theme');
+            if (savedTheme === 'dark') {
+                html.classList.add('dark');
+                icon.setAttribute('data-lucide', 'sun');
+            } else {
+                html.classList.remove('dark');
+                icon.setAttribute('data-lucide', 'moon');
+            }
+
+            toggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                const isDark = html.classList.contains('dark');
+                localStorage.setItem('gc-theme', isDark ? 'dark' : 'light');
+                icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+                renderIcons();
+            });
+        }
+
+        // 7. Mobile Navigation Drawer
+        function initMobileMenu() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const drawer = document.getElementById('mobileDrawer');
+            if (!btn || !drawer) return;
+
+            btn.addEventListener('click', () => {
+                drawer.classList.toggle('hidden');
+            });
+
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    drawer.classList.add('hidden');
+                });
+            });
+        }
+
+        // 8. Smooth Anchor Scrolling with Lenis Integration
+        function initSmoothAnchors() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (!targetId || targetId === '#') return;
+                    e.preventDefault();
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        if (lenis) {
+                            lenis.scrollTo(targetEl, { offset: -80 });
+                        } else {
+                            targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initLenis();
+            renderPracticeTabs();
+            initRouter();
+            initCardModal();
+            initTheme();
+            initMobileMenu();
+            initSmoothAnchors();
+            renderIcons();
+        });
+    </script>
+</body>
+</html>
