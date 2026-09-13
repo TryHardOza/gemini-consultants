@@ -4,15 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <meta name="theme-color" content="#FBF9F5" id="metaThemeColor">
+    <script>
+        (function() {
+            try {
+                var saved = localStorage.getItem('gc-theme');
+                var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (saved === 'dark' || (!saved && prefersDark)) {
+                    document.documentElement.classList.add('dark');
+                    var meta = document.getElementById('metaThemeColor');
+                    if (meta) meta.setAttribute('content', '#000000');
+                }
+            } catch(e) {}
+        })();
+    </script>
     <title>Gemini Consultants | Tax, GST & Business Advisory</title>
     <meta name="description" content="Gemini Consultants (Jeet Oza). Strategic Direct Tax (DT), GST, New Business Setup, Co-op Housing Society Accounting, and Bank Loan CMA Financials.">
+    <link rel="canonical" href="https://geminiconsultants.netlify.app/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
     
     <!-- Open Graph & WhatsApp Link Preview Meta Tags -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Gemini Consultants">
+    <meta property="og:url" content="https://geminiconsultants.netlify.app/">
     <meta property="og:title" content="Gemini Consultants | Tax, GST & Business Advisory">
     <meta property="og:description" content="Strategic Direct Tax (DT), Section 44ADA 50% deductions for creators, GST compliance, and startup formation.">
-    <meta property="og:image" content="business_card.png">
+    <meta property="og:image" content="https://geminiconsultants.netlify.app/business_card.png">
+    <meta property="og:image:width" content="1702">
+    <meta property="og:image:height" content="976">
+    <meta property="og:image:type" content="image/png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gemini Consultants | Tax, GST & Business Advisory">
+    <meta name="twitter:description" content="Strategic Direct Tax (DT), Section 44ADA 50% deductions for creators, GST compliance, and startup formation.">
+    <meta name="twitter:image" content="https://geminiconsultants.netlify.app/business_card.png">
     
     <!-- Google SEO Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -27,10 +52,21 @@
       },
       "description": "Strategic Direct Tax (DT), Section 44ADA for creators, GST compliance, startup setup, society accounts, and bank loan CMA data.",
       "url": "https://geminiconsultants.netlify.app",
+      "image": "https://geminiconsultants.netlify.app/business_card.png",
       "telephone": "+918830634354",
       "email": "jeetoza12@protonmail.com",
       "priceRange": "₹₹",
-      "areaServed": "India"
+      "areaServed": "India",
+      "currenciesAccepted": "INR",
+      "paymentAccepted": "Bank Transfer, UPI, Cheque, NEFT",
+      "knowsAbout": [
+        "Direct Taxation (DT)",
+        "Section 44ADA Presumptive Taxation",
+        "Goods and Services Tax (GST)",
+        "Startup Partnership Deeds u/s 40(b)",
+        "Co-operative Housing Society Accounts",
+        "Credit Monitoring Arrangement (CMA) Data"
+      ]
     }
     </script>
     
@@ -69,7 +105,7 @@
            ========================================================================== */
         
         :root {
-            /* LIGHT MODE: Editorial Warm Ivory & Rich Antique Bronze */
+            /* LIGHT MODE: Editorial Warm Ivory & Rich Antique Bronze (WCAG AA Compliant) */
             --bg-page: #FBF9F5;
             --bg-surface: #F3EFE8;
             --bg-card: #FFFFFF;
@@ -79,18 +115,18 @@
             
             --text-primary: #0F172A;
             --text-secondary: #334155;
-            --text-muted: #64748B;
+            --text-muted: #475569; /* WCAG AA 5.6:1 on light surface */
             
             --border-subtle: rgba(15, 23, 42, 0.08);
             --border-medium: rgba(15, 23, 42, 0.16);
-            --border-gold: rgba(158, 119, 54, 0.45);
+            --border-gold: rgba(133, 95, 32, 0.38);
             
-            --accent-gold: #9E7736;
-            --accent-gold-hover: #836025;
-            --accent-gold-light: #C5A880;
-            --accent-gold-bg: rgba(158, 119, 54, 0.09);
+            --accent-gold: #855F20; /* WCAG AA 5.3:1 on white cards */
+            --accent-gold-hover: #6F4F19;
+            --accent-gold-light: #B89355;
+            --accent-gold-bg: rgba(133, 95, 32, 0.08);
             --accent-gold-text: #FFFFFF;
-            --accent-gold-gradient: linear-gradient(135deg, #9E7736 0%, #C5A880 50%, #7D5B23 100%);
+            --accent-gold-gradient: linear-gradient(135deg, #855F20 0%, #B89355 50%, #634311 100%);
             
             --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.07), 0 1px 3px 0 rgba(0, 0, 0, 0.04);
             --shadow-elevated: 0 20px 40px -15px rgba(0, 0, 0, 0.12);
@@ -134,6 +170,12 @@
             cursor: default;
         }
 
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            position: relative;
+        }
+
         body {
             background-color: var(--bg-page);
             color: var(--text-primary);
@@ -142,6 +184,12 @@
 
         a, button, select, input, textarea, [role="button"] {
             cursor: pointer;
+        }
+
+        /* Visible Focus Indicators for Full Keyboard Accessibility */
+        a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, [role="button"]:focus-visible, [tabindex="0"]:focus-visible {
+            outline: 2px solid var(--accent-gold);
+            outline-offset: 2px;
         }
 
         /* Color Utility Classes */
@@ -301,39 +349,39 @@
 
     <!-- Executive Sticky Navigation -->
     <header class="sticky top-0 z-40 backdrop-blur-xl bg-theme-surface/90 border-b border-theme-subtle transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
             
             <!-- Brand Logo Mark -->
-            <a href="#" class="flex items-center gap-2.5 sm:gap-3.5 group">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-theme-elevated border border-theme-gold flex items-center justify-center text-theme-gold font-display font-bold text-base sm:text-lg shadow-sm group-hover:scale-105 transition-transform shrink-0">
+            <a href="#" class="flex items-center gap-2 sm:gap-3 group min-w-0 flex-1 overflow-hidden" aria-label="Gemini Consultants Home">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-theme-elevated border border-theme-gold flex items-center justify-center text-theme-gold font-display font-bold text-xs sm:text-base shadow-sm group-hover:scale-105 transition-transform shrink-0">
                     GC
                 </div>
-                <div>
-                    <span class="font-display text-sm sm:text-base lg:text-lg tracking-wider sm:tracking-widest uppercase font-bold text-theme-primary block leading-tight">
+                <div class="min-w-0 truncate">
+                    <span class="font-display text-[11.5px] sm:text-base lg:text-lg tracking-wider sm:tracking-widest uppercase font-bold text-theme-primary block leading-tight truncate">
                         GEMINI <span class="text-theme-gold">CONSULTANTS</span>
                     </span>
-                    <span class="text-[8.5px] sm:text-[10px] tracking-[0.16em] sm:tracking-[0.2em] text-theme-muted uppercase block font-medium">
+                    <span class="text-[7.5px] sm:text-[10px] tracking-[0.1em] sm:tracking-[0.2em] text-theme-muted uppercase block font-medium truncate">
                         Tax • GST • Business Solutions
                     </span>
                 </div>
             </a>
 
             <!-- Clean Desktop Navigation Tabs -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-theme-secondary">
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-theme-secondary" aria-label="Main Navigation">
                 <a href="#hero" class="hover:text-theme-gold transition-colors">Overview</a>
                 <a href="#services" class="hover:text-theme-gold transition-colors">Services Offered</a>
                 <a href="#consultation" class="hover:text-theme-gold transition-colors">Consultation</a>
             </nav>
 
             <!-- Action Controls -->
-            <div class="flex items-center gap-2 sm:gap-3">
+            <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
                 <!-- Theme Toggle Button -->
-                <button id="themeToggle" class="p-2 sm:p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold hover:border-theme-gold transition-colors touch-press min-w-[40px] min-h-[40px] flex items-center justify-center" title="Toggle Light / Dark Mode">
+                <button id="themeToggle" type="button" class="p-2 sm:p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold hover:border-theme-gold transition-colors touch-press w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center" title="Toggle Light / Dark Mode" aria-label="Toggle light or dark theme">
                     <i data-lucide="moon" id="themeIcon" class="w-4 h-4"></i>
                 </button>
 
                 <!-- Mobile Hamburger Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2 sm:p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold transition-colors touch-press min-w-[40px] min-h-[40px] flex items-center justify-center" title="Open Navigation Menu">
+                <button id="mobileMenuBtn" type="button" class="md:hidden p-2 sm:p-2.5 rounded-lg border border-theme-subtle text-theme-secondary hover:text-theme-gold transition-colors touch-press w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center" title="Open Navigation Menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobileDrawer">
                     <i data-lucide="menu" id="mobileMenuIcon" class="w-5 h-5"></i>
                 </button>
             </div>
@@ -387,8 +435,8 @@
     <section id="hero" class="relative pt-8 pb-16 sm:pt-20 sm:pb-28 overflow-hidden">
         
         <!-- Fora-Style Dark Ambient Architectural Wallpaper (Fades into pure black) -->
-        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none dark:block hidden">
-            <img src="hero_dark_bg.jpg" alt="" class="w-full h-full object-cover object-center opacity-45 mix-blend-screen scale-105 transition-transform duration-1000">
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none dark:block hidden" aria-hidden="true">
+            <img src="hero_dark_bg.jpg" alt="" width="1376" height="768" class="w-full h-full object-cover object-center opacity-45 mix-blend-screen scale-105 transition-transform duration-1000">
             <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black/90"></div>
         </div>
@@ -428,24 +476,29 @@
                         </a>
                     </div>
 
+                    <!-- Trust Metrics Grid (Rendered from services.js) -->
+                    <div id="heroStats" class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-theme-subtle text-left">
+                        <!-- Injected dynamically via services.js -->
+                    </div>
+
                 </div>
 
                 <!-- Hero Right: Official Business Card (Clickable) -->
                 <div class="lg:col-span-5">
                     <div class="relative mx-auto max-w-sm sm:max-w-md">
                         
-                        <div id="cardTrigger" role="button" tabindex="0" class="group relative rounded-2xl border-2 border-theme-gold/40 hover:border-theme-gold shadow-2xl p-1.5 sm:p-2 bg-theme-elevated overflow-hidden transition-all duration-300 hover:scale-[1.01] touch-press cursor-pointer" title="Tap to reveal all services and mandate">
-                            <img src="business_card.png" alt="Gemini Consultants - Jeet Oza Business Card" class="w-full h-auto object-cover rounded-xl transition-transform duration-300">
+                        <div id="cardTrigger" role="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false" aria-controls="cardModal" aria-label="Open Gemini Consultants business card and full scope of services" class="group relative rounded-2xl border-2 border-theme-gold/40 hover:border-theme-gold shadow-2xl p-1.5 sm:p-2 bg-theme-elevated overflow-hidden transition-all duration-300 hover:scale-[1.01] touch-press cursor-pointer" title="Tap to reveal all services and mandate">
+                            <img src="business_card.png" alt="Gemini Consultants - Jeet Oza Business Card" width="1702" height="976" loading="eager" fetchpriority="high" class="w-full h-auto object-cover rounded-xl transition-transform duration-300">
                             
                             <!-- Sleek Floating Badge -->
-                            <div class="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full gold-button text-[10.5px] sm:text-xs font-bold uppercase tracking-wider shadow-lg opacity-95 group-hover:opacity-100 transition-all whitespace-nowrap">
+                            <div class="absolute bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full gold-button text-[10.5px] sm:text-xs font-bold uppercase tracking-wider shadow-lg opacity-95 group-hover:opacity-100 transition-all whitespace-nowrap pointer-events-none">
                                 <i data-lucide="sparkles" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
                                 <span>Tap Card to View Mandate</span>
                             </div>
                         </div>
 
                         <p class="text-[11px] text-center text-theme-muted mt-2.5 sm:mt-3 font-light flex items-center justify-center gap-1.5">
-                            <i data-lucide="touch-pad" class="w-3.5 h-3.5 text-theme-gold sm:hidden"></i>
+                            <i data-lucide="touchpad" class="w-3.5 h-3.5 text-theme-gold sm:hidden"></i>
                             <span>Tap the card to view our scope of services and credentials.</span>
                         </p>
 
@@ -457,7 +510,7 @@
     </section>
 
     <!-- Services Offered Section (Responsive Horizontal Snap Track on Mobile, Grid on Desktop) -->
-    <section id="services" class="py-16 sm:py-24 bg-theme-surface border-y border-theme-subtle relative">
+    <section id="services" class="py-16 sm:py-24 bg-theme-surface border-y border-theme-subtle relative overflow-x-clip">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
             <div class="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-3 mb-8 sm:mb-12">
@@ -470,8 +523,8 @@
             </div>
 
             <!-- Responsive Practice Tabs Track: Horizontal Snap-Scroll on Mobile, Grid on Desktop -->
-            <div class="relative mb-6 sm:mb-10">
-                <div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-2.5 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:gap-3 sm:overflow-visible" id="practiceTabs">
+            <div class="relative mb-6 sm:mb-10 overflow-hidden sm:overflow-visible">
+                <div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-2.5 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:gap-3 sm:overflow-visible" id="practiceTabs" role="tablist" aria-label="Practice Areas">
                     <!-- Injected dynamically via services.js -->
                 </div>
                 <!-- Subtle mobile swipe indicator hint -->
@@ -482,7 +535,7 @@
             </div>
 
             <!-- Active Practice Content Box with Smooth Fade -->
-            <div id="practiceContent" class="rounded-2xl sm:rounded-3xl theme-card p-5 sm:p-12 border-theme-gold tab-pane-transition">
+            <div id="practiceContent" class="rounded-2xl sm:rounded-3xl theme-card p-5 sm:p-12 border-theme-gold tab-pane-transition" role="tabpanel" aria-live="polite">
                 <!-- Injected via services.js -->
             </div>
 
@@ -507,35 +560,37 @@
                 </p>
 
                 <!-- Interactive Routing Form -->
-                <div class="max-w-xl mx-auto grid sm:grid-cols-2 gap-3 sm:gap-4 text-left">
-                    <div>
-                        <label class="block text-[11px] sm:text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Select Mandate</label>
-                        <select id="routerPractice" class="w-full px-4 py-3.5 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-base sm:text-xs focus:outline-none focus:border-theme-gold transition-colors min-h-[48px]">
-                            <!-- Injected dynamically from services.js -->
-                        </select>
+                <form id="routerForm" class="space-y-4 max-w-xl mx-auto text-left" onsubmit="event.preventDefault();">
+                    <div class="grid sm:grid-cols-2 gap-3 sm:gap-4">
+                        <div>
+                            <label for="routerPractice" class="block text-[11px] sm:text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Select Mandate</label>
+                            <select id="routerPractice" class="w-full px-4 py-3.5 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-base sm:text-xs focus:outline-none focus:border-theme-gold transition-colors min-h-[48px]">
+                                <!-- Injected dynamically from services.js -->
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="routerName" class="block text-[11px] sm:text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Your Name / Entity</label>
+                            <input type="text" id="routerName" placeholder="Client Name or Business / Channel" class="w-full px-4 py-3.5 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-base sm:text-xs placeholder-theme-muted focus:outline-none focus:border-theme-gold transition-colors min-h-[48px]">
+                        </div>
                     </div>
 
-                    <div>
-                        <label class="block text-[11px] sm:text-xs font-medium text-theme-muted mb-1.5 uppercase tracking-wider">Your Name / Entity</label>
-                        <input type="text" id="routerName" placeholder="Client Name or Business / Channel" class="w-full px-4 py-3.5 rounded-xl bg-theme-input border border-theme-subtle text-theme-primary text-base sm:text-xs placeholder-theme-muted focus:outline-none focus:border-theme-gold transition-colors min-h-[48px]">
+                    <!-- Launch Button: Start Communication -->
+                    <div class="pt-1 sm:pt-2">
+                        <button id="routerSubmitBtn" type="submit" class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl gold-button text-sm tracking-wide shadow-xl touch-press min-h-[50px]" aria-label="Start Communication on WhatsApp">
+                            <i data-lucide="message-circle" class="w-5 h-5"></i>
+                            <span>Start Communication</span>
+                        </button>
                     </div>
-                </div>
-
-                <!-- Launch Button: Start Communication -->
-                <div class="pt-1 sm:pt-2 max-w-xl mx-auto">
-                    <button id="routerSubmitBtn" class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl gold-button text-sm tracking-wide shadow-xl touch-press min-h-[50px]">
-                        <i data-lucide="message-circle" class="w-5 h-5"></i>
-                        <span>Start Communication</span>
-                    </button>
-                </div>
+                </form>
 
                 <!-- Touch-Friendly Direct Contact Pills (Zero location mentioned) -->
                 <div class="pt-6 border-t border-theme-subtle grid sm:grid-cols-2 gap-3 text-xs text-theme-secondary max-w-md mx-auto">
-                    <a href="tel:8830634354" class="p-3 rounded-xl bg-theme-surface border border-theme-subtle hover:border-theme-gold transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-press">
+                    <a href="tel:8830634354" class="p-3 rounded-xl bg-theme-surface border border-theme-subtle hover:border-theme-gold transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-press" aria-label="Direct Phone Call to Jeet Oza">
                         <i data-lucide="phone" class="w-4 h-4 text-theme-gold"></i>
                         <span class="font-semibold">+91 88306 34354</span>
                     </a>
-                    <a href="mailto:jeetoza12@protonmail.com" class="p-3 rounded-xl bg-theme-surface border border-theme-subtle hover:border-theme-gold transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-press">
+                    <a href="mailto:jeetoza12@protonmail.com" class="p-3 rounded-xl bg-theme-surface border border-theme-subtle hover:border-theme-gold transition-colors flex items-center justify-center gap-2 min-h-[44px] touch-press" aria-label="Direct Email to Jeet Oza">
                         <i data-lucide="mail" class="w-4 h-4 text-theme-gold"></i>
                         <span class="font-semibold">jeetoza12@protonmail.com</span>
                     </a>
@@ -551,14 +606,14 @@
     </footer>
 
     <!-- Interactive Business Card Modal (Mobile Bottom Sheet) -->
-    <div id="cardModal" data-lenis-prevent class="fixed inset-0 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300">
+    <div id="cardModal" data-lenis-prevent role="dialog" aria-modal="true" aria-labelledby="modalTitle" class="fixed inset-0 z-50 hidden flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300">
         <div data-lenis-prevent class="modal-sheet relative w-full max-w-2xl bg-theme-elevated rounded-t-3xl sm:rounded-3xl border border-theme-gold p-5 sm:p-8 shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] my-0 sm:my-auto overscroll-contain">
             
             <!-- Mobile Pull Indicator / Grab Handle -->
-            <div class="w-12 h-1 bg-theme-muted/40 rounded-full mx-auto mb-3 sm:hidden"></div>
+            <div class="w-12 h-1 bg-theme-muted/40 rounded-full mx-auto mb-3 sm:hidden" aria-hidden="true"></div>
 
-            <!-- Close Button -->
-            <button id="closeModalBtn" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-10 h-10 flex items-center justify-center rounded-full bg-theme-surface border border-theme-subtle text-theme-muted hover:text-theme-primary active:scale-95 transition-all z-10 touch-press" title="Close modal">
+            <!-- Close Button (44x44px for Touch Ergonomics) -->
+            <button id="closeModalBtn" type="button" class="absolute top-4 right-4 sm:top-5 sm:right-5 w-11 h-11 flex items-center justify-center rounded-full bg-theme-surface border border-theme-subtle text-theme-muted hover:text-theme-primary active:scale-95 transition-all z-10 touch-press" title="Close modal" aria-label="Close modal">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
@@ -567,13 +622,13 @@
                 <!-- Modal Header -->
                 <div class="border-b border-theme-subtle pb-3.5 sm:pb-4 pr-10">
                     <span class="text-[9.5px] sm:text-[10px] font-bold uppercase tracking-widest text-theme-gold">Official Mandate</span>
-                    <h3 class="font-serif text-2xl sm:text-3xl text-theme-primary font-normal leading-tight">Gemini Consultants</h3>
+                    <h3 id="modalTitle" class="font-serif text-2xl sm:text-3xl text-theme-primary font-normal leading-tight">Gemini Consultants</h3>
                     <p class="text-xs text-theme-secondary mt-0.5">Jeet Oza • Tax Consultant & Financial Advisor</p>
                 </div>
 
                 <!-- Business Card Display -->
                 <div class="rounded-xl overflow-hidden border border-theme-gold/40 shadow-lg">
-                    <img src="business_card.png" alt="Gemini Consultants Card" class="w-full h-auto object-cover">
+                    <img src="business_card.png" alt="Gemini Consultants Card - Jeet Oza" width="1702" height="976" loading="lazy" class="w-full h-auto object-cover">
                 </div>
 
                 <!-- Written Services Overview -->
@@ -635,15 +690,23 @@
     <!-- Load App Controller & Logic -->
     <script src="services.js"></script>
     <script>
-        let currentTabId = FIRM_CONFIG.practiceAreas[0].id;
+        let currentTabId = (FIRM_CONFIG.practiceAreas && FIRM_CONFIG.practiceAreas[0]) ? FIRM_CONFIG.practiceAreas[0].id : 'direct-tax';
+        let lastFocusedElement = null;
 
         function renderIcons() {
-            if (window.lucide) {
+            if (window.lucide && typeof lucide.createIcons === 'function') {
                 lucide.createIcons();
             }
         }
 
-        // 1. Initialize Lenis Smooth Scroll
+        // Bulletproof Lucide helper: replaces innerHTML and re-creates SVG icons dynamically
+        function setIcon(el, iconName, className = 'w-5 h-5') {
+            if (!el) return;
+            el.innerHTML = `<i data-lucide="${iconName}" class="${className}"></i>`;
+            renderIcons();
+        }
+
+        // 1. Initialize Lenis Smooth Momentum Scroll
         let lenis = null;
         function initLenis() {
             if (typeof Lenis !== 'undefined') {
@@ -662,15 +725,34 @@
             }
         }
 
-        // 2. Render Practice Tabs (Responsive Horizontal Snap-Scroll on Mobile, Grid on Desktop)
+        // 2. Render Hero Trust Metrics Strip
+        function renderHeroStats() {
+            const container = document.getElementById('heroStats');
+            if (!container || !FIRM_CONFIG.stats) return;
+
+            container.innerHTML = FIRM_CONFIG.stats.map(s => `
+                <div class="p-2.5 sm:p-3 rounded-xl bg-theme-surface/70 border border-theme-subtle hover:border-theme-gold transition-all duration-200 group">
+                    <div class="font-display font-bold text-sm sm:text-base text-theme-primary group-hover:text-theme-gold transition-colors">${s.value}</div>
+                    <div class="text-[10px] sm:text-xs font-semibold text-theme-secondary leading-tight mt-0.5">${s.label}</div>
+                    <div class="text-[9px] sm:text-[10px] text-theme-muted font-light mt-0.5 truncate">${s.sub}</div>
+                </div>
+            `).join('');
+        }
+
+        // 3. Render Practice Tabs (Responsive Horizontal Snap-Scroll on Mobile, Grid on Desktop)
         function renderPracticeTabs() {
             const tabsBar = document.getElementById('practiceTabs');
             if (!tabsBar || !FIRM_CONFIG.practiceAreas) return;
 
-            tabsBar.innerHTML = FIRM_CONFIG.practiceAreas.map(p => {
+            tabsBar.innerHTML = FIRM_CONFIG.practiceAreas.map((p, idx) => {
                 const isActive = p.id === currentTabId;
                 return `
                     <button onclick="switchPractice('${p.id}')" 
+                            id="tab-${p.id}"
+                            role="tab"
+                            aria-selected="${isActive}"
+                            aria-controls="practiceContent"
+                            tabindex="${isActive ? '0' : '-1'}"
                             type="button"
                             class="shrink-0 min-w-[145px] max-w-[175px] sm:min-w-0 sm:max-w-none snap-start p-3 sm:p-4 rounded-xl text-left transition-all duration-200 border flex flex-col justify-between gap-2.5 touch-press ${
                                 isActive 
@@ -689,7 +771,7 @@
             renderPracticeContent();
         }
 
-        // 3. Render Practice Content (Smooth Fade & Mobile Touch Targets)
+        // 4. Render Practice Content (Smooth Fade & Mobile Touch Targets)
         function renderPracticeContent() {
             const container = document.getElementById('practiceContent');
             const practice = FIRM_CONFIG.practiceAreas.find(p => p.id === currentTabId);
@@ -700,11 +782,12 @@
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6 border-b border-theme-subtle pb-5 sm:pb-6">
                         <div>
                             <span class="text-xs font-bold uppercase tracking-widest text-theme-gold">${practice.subtitle}</span>
-                            <h3 class="font-serif text-2xl sm:text-4xl font-normal text-theme-primary mt-1">${practice.title}</h3>
+                            <h3 id="activeTabHeading" class="font-serif text-2xl sm:text-4xl font-normal text-theme-primary mt-1">${practice.title}</h3>
                         </div>
                         <a href="https://wa.me/91${FIRM_CONFIG.brand.phone}?text=${encodeURIComponent('Hello Jeet, I would like to consult regarding ' + practice.title + ' with Gemini Consultants.')}" 
                            target="_blank" rel="noopener noreferrer"
-                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-theme-gold text-theme-gold hover:bg-theme-surface font-semibold text-xs tracking-wider uppercase transition-all shrink-0 min-h-[44px] touch-press">
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl border border-theme-gold text-theme-gold hover:bg-theme-surface font-semibold text-xs tracking-wider uppercase transition-all shrink-0 min-h-[44px] touch-press"
+                           aria-label="Inquire about ${practice.title} on WhatsApp">
                             <i data-lucide="message-square" class="w-4 h-4"></i>
                             <span>Inquire</span>
                         </a>
@@ -745,30 +828,57 @@
                 container.classList.add('tab-pane-transition');
             }
 
-            // Smoothly center active tab into view horizontally on mobile
+            // Horizontally center active tab without jumping vertical window scroll
             const tabsBar = document.getElementById('practiceTabs');
             if (tabsBar && window.innerWidth < 640) {
-                const activeBtn = tabsBar.querySelector(`[onclick="switchPractice('${id}')"]`);
+                const activeBtn = document.getElementById(`tab-${id}`);
                 if (activeBtn) {
-                    activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                    const scrollTarget = activeBtn.offsetLeft - (tabsBar.clientWidth / 2) + (activeBtn.clientWidth / 2);
+                    tabsBar.scrollTo({ left: Math.max(0, scrollTarget), behavior: 'smooth' });
                 }
             }
         }
 
-        // 4. Populate Consultation Dropdown
+        // Keyboard Arrow Navigation for Practice Tabs
+        function initTabsKeyboard() {
+            const tabsBar = document.getElementById('practiceTabs');
+            if (!tabsBar) return;
+
+            tabsBar.addEventListener('keydown', (e) => {
+                const tabs = FIRM_CONFIG.practiceAreas;
+                if (!tabs || tabs.length === 0) return;
+                const currentIndex = tabs.findIndex(p => p.id === currentTabId);
+                
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    const next = tabs[(currentIndex + 1) % tabs.length];
+                    switchPractice(next.id);
+                    document.getElementById(`tab-${next.id}`)?.focus();
+                } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    const prev = tabs[(currentIndex - 1 + tabs.length) % tabs.length];
+                    switchPractice(prev.id);
+                    document.getElementById(`tab-${prev.id}`)?.focus();
+                }
+            });
+        }
+
+        // 5. Consultation Mandate Router Form
         function initRouter() {
             const select = document.getElementById('routerPractice');
-            const btn = document.getElementById('routerSubmitBtn');
+            const form = document.getElementById('routerForm');
             if (select && FIRM_CONFIG.consultationOptions) {
                 select.innerHTML = FIRM_CONFIG.consultationOptions.map(opt => `
                     <option value="${opt.value}">${opt.label}</option>
                 `).join('');
             }
 
-            if (btn) {
-                btn.addEventListener('click', () => {
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
                     const practice = select ? select.value : 'General Advisory';
-                    const name = document.getElementById('routerName').value.trim();
+                    const nameInput = document.getElementById('routerName');
+                    const name = nameInput ? nameInput.value.trim() : '';
                     let msg = `Hello Jeet,`;
                     if (name) msg += ` this is ${name}.`;
                     msg += ` I would like to schedule a strategic consultation regarding ${practice} with Gemini Consultants.`;
@@ -779,7 +889,7 @@
             }
         }
 
-        // 5. Business Card Interactive Modal
+        // 6. Business Card Interactive Modal
         function initCardModal() {
             const trigger = document.getElementById('cardTrigger');
             const modal = document.getElementById('cardModal');
@@ -788,16 +898,21 @@
             if (!trigger || !modal) return;
 
             const openModal = () => {
+                lastFocusedElement = document.activeElement;
                 modal.classList.remove('hidden');
+                trigger.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
                 if (lenis) lenis.stop();
                 renderIcons();
+                if (closeBtn) closeBtn.focus();
             };
 
             const closeModal = () => {
                 modal.classList.add('hidden');
+                trigger.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
                 if (lenis) lenis.start();
+                if (lastFocusedElement) lastFocusedElement.focus();
             };
 
             trigger.addEventListener('click', openModal);
@@ -821,84 +936,128 @@
             });
         }
 
-        // 6. Light / Dark Theme Switcher with Persistence & Dynamic Mobile Status Bar
+        // 7. Light / Dark Theme Switcher with Persistence & Dynamic Mobile Status Bar
         function initTheme() {
             const toggle = document.getElementById('themeToggle');
-            const icon = document.getElementById('themeIcon');
             const html = document.documentElement;
             const metaTheme = document.getElementById('metaThemeColor');
+            if (!toggle) return;
 
             const applyTheme = (isDark) => {
                 if (isDark) {
                     html.classList.add('dark');
-                    icon.setAttribute('data-lucide', 'sun');
+                    setIcon(toggle, 'sun', 'w-4 h-4');
+                    toggle.setAttribute('aria-label', 'Switch to Light theme');
                     if (metaTheme) metaTheme.setAttribute('content', '#000000');
                 } else {
                     html.classList.remove('dark');
-                    icon.setAttribute('data-lucide', 'moon');
+                    setIcon(toggle, 'moon', 'w-4 h-4');
+                    toggle.setAttribute('aria-label', 'Switch to Dark theme');
                     if (metaTheme) metaTheme.setAttribute('content', '#FBF9F5');
                 }
-                renderIcons();
             };
 
-            const savedTheme = localStorage.getItem('gc-theme');
+            let savedTheme = null;
+            try {
+                savedTheme = localStorage.getItem('gc-theme');
+            } catch(e) {}
+            
             applyTheme(savedTheme === 'dark');
 
             toggle.addEventListener('click', () => {
                 const isDark = !html.classList.contains('dark');
-                localStorage.setItem('gc-theme', isDark ? 'dark' : 'light');
+                try {
+                    localStorage.setItem('gc-theme', isDark ? 'dark' : 'light');
+                } catch(e) {}
                 applyTheme(isDark);
             });
         }
 
-        // 7. Mobile Navigation Drawer with Icon Morphing
+        // 8. Mobile Navigation Drawer with Dynamic Icon Morphing & Dismissal
         function initMobileMenu() {
             const btn = document.getElementById('mobileMenuBtn');
             const drawer = document.getElementById('mobileDrawer');
-            const icon = document.getElementById('mobileMenuIcon');
             if (!btn || !drawer) return;
 
+            const setMenuState = (isOpen) => {
+                if (isOpen) {
+                    drawer.classList.remove('hidden');
+                    btn.setAttribute('aria-expanded', 'true');
+                    btn.setAttribute('aria-label', 'Close navigation menu');
+                    setIcon(btn, 'x', 'w-5 h-5');
+                } else {
+                    drawer.classList.add('hidden');
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.setAttribute('aria-label', 'Open navigation menu');
+                    setIcon(btn, 'menu', 'w-5 h-5');
+                }
+            };
+
             btn.addEventListener('click', () => {
-                const isHidden = drawer.classList.toggle('hidden');
-                if (icon) {
-                    icon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
-                    renderIcons();
+                const isOpen = drawer.classList.contains('hidden');
+                setMenuState(isOpen);
+            });
+
+            // Close on nav link click
+            document.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', () => setMenuState(false));
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !drawer.classList.contains('hidden')) {
+                    setMenuState(false);
+                    btn.focus();
                 }
             });
 
-            document.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    drawer.classList.add('hidden');
-                    if (icon) {
-                        icon.setAttribute('data-lucide', 'menu');
-                        renderIcons();
-                    }
-                });
+            // Close on outside click
+            document.addEventListener('click', (e) => {
+                if (!drawer.classList.contains('hidden') && !drawer.contains(e.target) && !btn.contains(e.target)) {
+                    setMenuState(false);
+                }
+            });
+
+            // Reset drawer state on screen resize to desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768 && !drawer.classList.contains('hidden')) {
+                    setMenuState(false);
+                }
             });
         }
 
-        // 8. Smooth Anchor Scrolling with Lenis Integration
+        // 9. Smooth Anchor Scrolling with Lenis Integration
         function initSmoothAnchors() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const targetId = this.getAttribute('href');
-                    if (!targetId || targetId === '#') return;
-                    e.preventDefault();
-                    const targetEl = document.querySelector(targetId);
-                    if (targetEl) {
-                        if (lenis) {
-                            lenis.scrollTo(targetEl, { offset: -80 });
-                        } else {
-                            targetEl.scrollIntoView({ behavior: 'smooth' });
-                        }
+                    if (!targetId) return;
+                    if (targetId === '#') {
+                        e.preventDefault();
+                        if (lenis) lenis.scrollTo(0);
+                        else window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
                     }
+                    try {
+                        const targetEl = document.querySelector(targetId);
+                        if (targetEl) {
+                            e.preventDefault();
+                            if (lenis) {
+                                lenis.scrollTo(targetEl, { offset: -80 });
+                            } else {
+                                targetEl.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    } catch(err) {}
                 });
             });
         }
 
         document.addEventListener('DOMContentLoaded', () => {
             initLenis();
+            renderHeroStats();
             renderPracticeTabs();
+            initTabsKeyboard();
             initRouter();
             initCardModal();
             initTheme();
