@@ -19,16 +19,20 @@ const FIRM_CONFIG = {
 
 
 
-    // 5 Comprehensive Practice Verticals
+    // 5 Comprehensive Practice Verticals (1:1 Parity across Bento Grid, Advisory Scope & Card)
     practiceAreas: [
         {
             id: "direct-tax",
+            number: "01",
+            bentoSpan: "lg:col-span-7",
+            featured: true,
             badge: "Direct Tax (DT)",
             shortTitle: "Direct Tax & ITR",
             title: "Direct Taxation (DT) & Tax Defense",
             subtitle: "Personal & business ITR filings, Section 44ADA for creators, capital gains, and scrutiny defense",
             icon: "scale",
-            summary: "End-to-end direct tax advisory engineered for content creators, new businesses, salaried executives, and established firms. We maximize legal tax deductions under Section 44ADA, recover withheld Section 194J TDS refunds, and forensically reconcile every filing against ITD databases.",
+            tags: ["ITR-1 to ITR-7", "Sec 44ADA (50% Presumptive)", "Sec 194J TDS Refunds", "Capital Gains Planning"],
+            summary: "End-to-end direct tax advisory engineered for content creators, professionals, salaried executives, and established firms. We maximize legal tax deductions under Section 44ADA, recover withheld Section 194J TDS refunds, and forensically reconcile every filing against ITD databases.",
             deliverables: [
                 {
                     head: "Section 44ADA Presumptive Tax for Creators & Freelancers",
@@ -58,11 +62,15 @@ const FIRM_CONFIG = {
         },
         {
             id: "gst-compliance",
+            number: "02",
+            bentoSpan: "lg:col-span-5",
+            featured: true,
             badge: "Indirect Tax (GST)",
             shortTitle: "GST Compliance",
             title: "Goods & Services Tax (GST)",
             subtitle: "Registrations, monthly returns, 2B ITC matching, and zero-tax LUT export for creators",
             icon: "receipt",
+            tags: ["GST Registration", "GSTR-1 / 3B / 9", "2B ITC Reconciliation", "0% IGST Export LUT"],
             summary: "Comprehensive indirect tax framework safeguarding your input tax credits, ensuring error-free periodic filings, and providing zero-tax GST export filings for creators and digital businesses with foreign revenue.",
             deliverables: [
                 {
@@ -93,11 +101,15 @@ const FIRM_CONFIG = {
         },
         {
             id: "business-setup",
+            number: "03",
+            bentoSpan: "lg:col-span-4",
+            featured: false,
             badge: "Startups & Entities",
-            shortTitle: "Startup Formation",
-            title: "New Business & Startup Formation",
-            subtitle: "Entity structuring, partnership deeds u/s 40(b), MSME Udyam, Shop Act & banking",
+            shortTitle: "Startup & Business Setup",
+            title: "Startup & Business Setup",
+            subtitle: "Partnership deeds u/s 40(b), MSME Udyam, Shop Act licenses, PAN/TAN & current banking",
             icon: "briefcase",
+            tags: ["Section 40(b) Deeds", "MSME Udyam", "Shop Act License", "PAN/TAN & Banking"],
             summary: "Guiding first-time entrepreneurs and expanding ventures from legal incorporation to commercial bank operations. We establish tax-optimized entity structures that protect founders and attract commercial credit.",
             deliverables: [
                 {
@@ -128,11 +140,15 @@ const FIRM_CONFIG = {
         },
         {
             id: "co-op-society",
+            number: "04",
+            bentoSpan: "lg:col-span-4",
+            featured: false,
             badge: "Housing Societies",
             shortTitle: "Co-op Societies (CHS)",
-            title: "Co-operative Housing Society (CHS) Services",
-            subtitle: "Maintenance bill generation, computerized accounts handling, registers, and audit readiness",
+            title: "Co-operative Housing Societies (CHS)",
+            subtitle: "Maintenance billings, Form I & J registers, computerized accounts, and statutory audit readiness",
             icon: "building-2",
+            tags: ["Maintenance Billing", "Form I & J Registers", "Income & Expenditure", "Statutory Audit"],
             summary: "Turnkey society management ensuring complete statutory compliance and financial transparency between managing committees, society members, and the Registrar under the Co-operative Societies Act.",
             deliverables: [
                 {
@@ -163,11 +179,15 @@ const FIRM_CONFIG = {
         },
         {
             id: "financial-reporting",
+            number: "05",
+            bentoSpan: "lg:col-span-4",
+            featured: false,
             badge: "Accounting & CMA",
-            shortTitle: "Accounts & Bank CMA",
-            title: "Accounting, Balance Sheets & Bank Loan CMA",
-            subtitle: "ICAI Non-Corporate Entity vertical statements, banker-ready T-Format, and CMA credit data",
+            shortTitle: "Accounting & Bank CMA",
+            title: "Accounting & Bank Loan CMA",
+            subtitle: "CMA data for CC, OD & Term Loans, ratio analysis, drawing power, and bank-approved financials",
             icon: "landmark",
+            tags: ["CMA Data (CC/OD/Term)", "Ratio & Drawing Power", "ICAI Balance Sheets", "5-Yr Projections"],
             summary: "Audit-ready financial reporting and loan credit documentation structured to satisfy commercial bank underwriting, credit rating agencies, and statutory authorities.",
             deliverables: [
                 {
