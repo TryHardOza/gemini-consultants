@@ -5,7 +5,7 @@
  * Zero location references. 100% pure black & high-contrast.
  */
 
-const FIRM_CONFIG = {
+const FIRM_CONFIG = window.FIRM_CONFIG = {
     brand: {
         name: "GEMINI CONSULTANTS",
         tagline: "Tax • GST • Business Solutions",
