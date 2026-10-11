@@ -1,8 +1,13 @@
 /**
  * Gemini Consultants - Enterprise Practice Data & Content Model
- * Core Services: Direct Tax (DT), Goods & Services Tax (GST), New Business & Startup Setup,
- * Co-operative Housing Society (CHS), and Accounting & Bank Loan CMA.
- * Zero location references. 100% pure black & high-contrast.
+ * Value-First "What, Why & How" Advisory Framework
+ * Core Verticals:
+ * 1. Goods & Services Tax (GST)
+ * 2. Income Tax & Annual Accounts (ITR)
+ * 3. Business Formation & Structuring
+ * 4. Co-operative Housing Society (CHS) Accounting
+ * 5. Bank Loan Financials & Credit Facilitation
+ * Zero location references.
  */
 
 const FIRM_CONFIG = window.FIRM_CONFIG = {
@@ -17,86 +22,78 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
         email: "jeetoza12@protonmail.com"
     },
 
-
-
-    // 5 Comprehensive Practice Verticals (1:1 Parity across Bento Grid, Advisory Scope & Card)
+    // 5 Core Practice Verticals (Value-First "What & Why" Framework)
     practiceAreas: [
         {
-            id: "direct-tax",
+            id: "gst-compliance",
             number: "01",
             bentoSpan: "lg:col-span-7",
             featured: true,
-            badge: "Direct Tax (DT)",
-            shortTitle: "Direct Tax & ITR",
-            title: "Direct Taxation (DT) & Tax Defense",
-            subtitle: "Personal & business ITR filings, Section 44ADA for creators, capital gains, and scrutiny defense",
-            icon: "scale",
-            tags: ["ITR-1 to ITR-7", "Sec 44ADA (50% Presumptive)", "Sec 194J TDS Refunds", "Capital Gains Planning"],
-            summary: "End-to-end direct tax advisory engineered for content creators, professionals, salaried executives, and established firms. We maximize legal tax deductions under Section 44ADA, recover withheld Section 194J TDS refunds, and forensically reconcile every filing against ITD databases.",
-            deliverables: [
+            badge: "Goods & Services Tax (GST)",
+            tabLabel: "Goods & Services Tax (GST)",
+            shortTitle: "Goods & Services Tax (GST)",
+            title: "GST Compliance, Filing & Input Credit Optimization",
+            subtitle: "Protect your cash flow and keep your business invoicing legitimate.",
+            tagline: "Protect your cash flow and keep your business invoicing legitimate.",
+            icon: "receipt",
+            tags: ["GST Registration", "GSTR-1 & GSTR-3B", "GSTR-2B ITC Matching", "Notice & Backlog Desk"],
+            summary: "GST is India’s indirect tax on the commercial supply of goods and services. Registration is mandatory once aggregate turnover crosses ₹20 Lakhs for service providers or ₹40 Lakhs for traders (₹10L/₹20L in special states), or whenever you sell goods or provide services inter-state or via e-commerce.",
+            whatItIs: "GST is India’s indirect tax on the commercial supply of goods and services. Registration is mandatory once aggregate turnover crosses ₹20 Lakhs for service providers or ₹40 Lakhs for traders (₹10L/₹20L in special states), or whenever you sell goods or provide services inter-state or via e-commerce.",
+            whyItMatters: [
                 {
-                    head: "Section 44ADA Presumptive Tax for Creators & Freelancers",
-                    desc: "Declare only 50% of your gross digital receipts (up to ₹75 Lakhs) as taxable income with zero requirement to maintain tedious accounts or ledgers."
+                    head: "Legitimate Invoicing & B2B Retention",
+                    desc: "Registered corporate clients cannot claim tax credits on your invoices unless you hold a valid, active GSTIN."
                 },
                 {
-                    head: "Section 194J TDS Refund Extraction",
-                    desc: "Reclaim 10% or 2% TDS deducted by influencer agencies, brand sponsors, hospitals, and corporate clients directly back into your bank account."
+                    head: "Safeguarding Working Capital (ITC)",
+                    desc: "Unmatched or missed purchase bills cost you real cash. Systematic reconciliation ensures every rupee of GST paid on software, inventory, or capital assets offsets what you owe."
                 },
                 {
-                    head: "Capital Gains & Multi-Broker Tradebooks (ITR-2 / ITR-3)",
-                    desc: "Aggregation of equities, mutual funds, real estate sales, and F&O trading turnover with 8-year loss carryforward optimization."
-                },
-                {
-                    head: "Salaried & Executive Tax Optimization (ITR-1 / ITR-2)",
-                    desc: "Form 16 cross-verification, HRA, home loan deductions, Section 80C/80D optimizations, and ESOP stock taxation."
-                },
-                {
-                    head: "100% AIS, TIS & Form 26AS Scrutiny Reconciliation",
-                    desc: "Pre-filing cross-verification eliminating automated mismatch notices and high-value financial transaction scrutiny."
-                },
-                {
-                    head: "Departmental Notice Defense & Defective Returns",
-                    desc: "Formulating factual, statute-backed responses to Section 143(1) intimations, 139(9) defect notices, and 148 reassessment notices."
+                    head: "Portal Lockouts & Penalty Traps",
+                    desc: "Missing a single month’s GSTR-1 or GSTR-3B activates automated portal sequential locks, freezing current returns while statutory late fees and 18% annual interest compound daily."
                 }
+            ],
+            howWeHandleIt: [
+                "Turnkey GST registration and business trade classification",
+                "Timely monthly/quarterly return filings (GSTR-1 outward supplies & GSTR-3B tax offset)",
+                "Strict GSTR-2B purchase reconciliation to eliminate credit leakage",
+                "Fast-track backlog clearance, notice responses, and portal unblocking"
             ]
         },
         {
-            id: "gst-compliance",
+            id: "direct-tax",
             number: "02",
             bentoSpan: "lg:col-span-5",
             featured: true,
-            badge: "Indirect Tax (GST)",
-            shortTitle: "GST Compliance",
-            title: "Goods & Services Tax (GST)",
-            subtitle: "Registrations, monthly returns, 2B ITC matching, and zero-tax LUT export for creators",
-            icon: "receipt",
-            tags: ["GST Registration", "GSTR-1 / 3B / 9", "2B ITC Reconciliation", "0% IGST Export LUT"],
-            summary: "Comprehensive indirect tax framework safeguarding your input tax credits, ensuring error-free periodic filings, and providing zero-tax GST export filings for creators and digital businesses with foreign revenue.",
-            deliverables: [
+            badge: "Income Tax & Accounts",
+            tabLabel: "Income Tax (ITR)",
+            shortTitle: "Income Tax (ITR)",
+            title: "Income Tax Planning, ITR Filing & Year-End Accounts",
+            subtitle: "Legally minimize payable tax while building an audit-proof financial track record.",
+            tagline: "Legally minimize payable tax while building an audit-proof financial track record.",
+            icon: "scale",
+            tags: ["P&L & Balance Sheets", "ITR Filing", "AIS / TIS Reconciliation", "Regime Optimization"],
+            summary: "Income Tax is the statutory annual assessment on your net business earnings, professional retainers, and personal capital. Filing your ITR is your official economic identity submitted to the Income Tax Department.",
+            whatItIs: "Income Tax is the statutory annual assessment on your net business earnings, professional retainers, and personal capital. Filing your ITR is your official economic identity submitted to the Income Tax Department.",
+            whyItMatters: [
                 {
-                    head: "New GST Registrations & Threshold Advisory",
-                    desc: "Principal and additional place of business registrations, composition scheme advisory, and e-commerce seller onboarding."
+                    head: "Lending & Credit Credibility",
+                    desc: "Banks, NBFCs, and financial institutions mandate 2 to 3 years of clean, consistent ITR acknowledgments before approving business credit, overdrafts, or mortgages."
                 },
                 {
-                    head: "GST LUT Filing on Foreign Monetization (Zero-Rated Export)",
-                    desc: "Revenue from Google AdSense, YouTube, Stripe, PayPal, Upwork, and global brand sponsors qualifies as export of services. We file Letters of Undertaking (LUT) so you pay 0% GST legally."
+                    head: "Choosing the Right Tax Regime",
+                    desc: "With the New Tax Regime now the default standard, choosing between Old and New regimes without proper mathematical assessment leads to unnecessary cash outflow."
                 },
                 {
-                    head: "Monthly & Quarterly Filings (GSTR-1, GSTR-3B & QRMP)",
-                    desc: "Timely outward and inward return submissions with rigorous e-way bill and turnover reconciliation."
-                },
-                {
-                    head: "Automated GSTR-2B Input Tax Credit (ITC) Matching",
-                    desc: "Continuous vendor invoice verification to prevent credit reversals, ensure Section 16(4) compliance, and maximize cash flow."
-                },
-                {
-                    head: "Annual GST Return (GSTR-9 & GSTR-9C)",
-                    desc: "Exhaustive annual reconciliation between audited books of accounts and portal returns with tax difference calculations."
-                },
-                {
-                    head: "Departmental Notices & Scrutiny Defense",
-                    desc: "Drafting robust replies to Form ASMT-10, DRC-01, and DRC-07 notices regarding tax or ITC mismatches."
+                    head: "Avoiding Scrutiny Notices",
+                    desc: "Data discrepancies between your filed returns and the portal's automated Annual Information Statement (AIS) / Tax Information Summary (TIS) trigger automated verification notices."
                 }
+            ],
+            howWeHandleIt: [
+                "Compiling complete Profit & Loss (P&L) statements and Balance Sheets",
+                "Comprehensive ITR filing for Proprietors, Partnerships, Freelancers, and Individuals",
+                "AIS / TIS / Form 26AS mismatch reconciliation",
+                "Advance tax computation and legal year-end tax optimization"
             ]
         },
         {
@@ -104,38 +101,35 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             number: "03",
             bentoSpan: "lg:col-span-4",
             featured: false,
-            badge: "Startups & Entities",
-            shortTitle: "Startup & Business Setup",
-            title: "Startup & Business Setup",
-            subtitle: "Partnership deeds u/s 40(b), MSME Udyam, Shop Act licenses, PAN/TAN & current banking",
+            badge: "Business Formation",
+            tabLabel: "Business Setup",
+            shortTitle: "Business Setup",
+            title: "Entity Registration, Legal Deeds & Commercial Licensing",
+            subtitle: "Establish your commercial foundation without operational or legal roadblocks.",
+            tagline: "Establish your commercial foundation without operational or legal roadblocks.",
             icon: "briefcase",
-            tags: ["Section 40(b) Deeds", "MSME Udyam", "Shop Act License", "PAN/TAN & Banking"],
-            summary: "Guiding first-time entrepreneurs and expanding ventures from legal incorporation to commercial bank operations. We establish tax-optimized entity structures that protect founders and attract commercial credit.",
-            deliverables: [
+            tags: ["Partnership Deeds", "MSME (Udyam)", "Shop & Establishment", "Current Account Dossier"],
+            summary: "Setting up the legal structure under which your enterprise contracts, invoices, and operates—such as a Sole Proprietorship, Partnership Firm, or corporate entity—paired with core statutory operating licenses.",
+            whatItIs: "Setting up the legal structure under which your enterprise contracts, invoices, and operates—such as a Sole Proprietorship, Partnership Firm, or corporate entity—paired with core statutory operating licenses.",
+            whyItMatters: [
                 {
-                    head: "Entity Structuring (Proprietorship vs. Partnership vs. LLP)",
-                    desc: "Strategic advisory comparing tax liability, founder liability, and compliance overhead to select the ideal corporate vehicle for your stage."
+                    head: "Frictionless Banking & Onboarding",
+                    desc: "You cannot open a commercial Current Account, apply for merchant gateways, or onboard institutional vendors without formal entity credentials."
                 },
                 {
-                    head: "Partnership Deed Drafting u/s 40(b)",
-                    desc: "Formulating bulletproof deeds with partner remuneration, interest on capital, and profit-sharing clauses that legally reduce firm-level tax."
+                    head: "Protection Against Future Disputes",
+                    desc: "For multi-partner ventures, handshake agreements without structured partnership deeds leave profit-sharing, capital interest, and exits vulnerable to disputes."
                 },
                 {
-                    head: "MSME / Udyam Aadhar Registration",
-                    desc: "Central Government certification enabling priority sector bank credit, lower collateral interest rates, and Section 43B(h) 45-day payment protections."
-                },
-                {
-                    head: "Shop & Establishment (Gumasta) Licensing",
-                    desc: "Complete municipal registration for offices, creative studios, retail outlets, commercial distribution hubs, and warehouses."
-                },
-                {
-                    head: "Corporate Current Account Onboarding",
-                    desc: "Drafting board resolutions, partner authorisations, and verified KYC dossiers to ensure hassle-free corporate current account sanctioning."
-                },
-                {
-                    head: "Founders' First-Year Compliance Blueprint",
-                    desc: "Setting up invoice serial templates, expense tracking workflows, and statutory filing calendars from Day 1 to avoid penalties."
+                    head: "Government Protection & Incentives",
+                    desc: "MSME (Udyam) registration unlocks statutory protection against delayed payments from buyers along with access to government priority-sector credit schemes."
                 }
+            ],
+            howWeHandleIt: [
+                "Custom Partnership Deed drafting and execution",
+                "MSME (Udyam) Registration and Shop & Establishment (Gumasta) licensing",
+                "Bank current account documentation packages",
+                "Entity restructuring advisory as your turnover scales"
             ]
         },
         {
@@ -143,38 +137,35 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             number: "04",
             bentoSpan: "lg:col-span-4",
             featured: false,
-            badge: "Housing Societies",
-            shortTitle: "Co-op Societies (CHS)",
-            title: "Co-operative Housing Societies (CHS)",
-            subtitle: "Maintenance billings, Form I & J registers, computerized accounts, and statutory audit readiness",
+            badge: "Society Accounting",
+            tabLabel: "Society Accounting",
+            shortTitle: "Society Accounting",
+            title: "Society Billing, Statutory Ledgers & Audit Readiness",
+            subtitle: "Eliminate member billing disputes and maintain full compliance with co-operative bye-laws.",
+            tagline: "Eliminate member billing disputes and maintain full compliance with co-operative bye-laws.",
             icon: "building-2",
-            tags: ["Maintenance Billing", "Form I & J Registers", "Income & Expenditure", "Statutory Audit"],
-            summary: "Turnkey society management ensuring complete statutory compliance and financial transparency between managing committees, society members, and the Registrar under the Co-operative Societies Act.",
-            deliverables: [
+            tags: ["Maintenance Billing", "Form I & J Registers", "Bank Reconciliations", "Statutory Audit Accounts"],
+            summary: "Dedicated bookkeeping and statutory compliance built strictly around the state Co-operative Societies Act and housing society bye-laws for residential complexes and commercial associations.",
+            whatItIs: "Dedicated bookkeeping and statutory compliance built strictly around the state Co-operative Societies Act and housing society bye-laws for residential complexes and commercial associations.",
+            whyItMatters: [
                 {
-                    head: "Quarterly / Monthly Maintenance Billing",
-                    desc: "Automated billing with sinking funds, repair funds, interest on overdue arrears, and computerized member receipts."
+                    head: "Transparent, Dispute-Free Billing",
+                    desc: "Errors in sinking funds, maintenance rates, or interest on dues trigger member friction and withheld maintenance payments."
                 },
                 {
-                    head: "Complete Books of Accounts & Cash/Bank Ledgers",
-                    desc: "Day-to-day cashbook, bank book, investment ledgers, and voucher accounting conforming to statutory society accounting norms."
+                    head: "Compulsory Statutory Registers",
+                    desc: "Managing committees are legally mandated to maintain official registers (Form I, Form J, share registers, and investment ledgers) for statutory inspections."
                 },
                 {
-                    head: "Statutory Member Register Maintenance",
-                    desc: "Up-to-date maintenance of Member Registers (Form 'I'), Share Registers (Form 'J'), and nomination registers."
-                },
-                {
-                    head: "Statutory Audit Preparation & Balance Sheets",
-                    desc: "Compiling year-end Balance Sheets, Income & Expenditure Accounts, audit memos, and submission to the Co-operative Department."
-                },
-                {
-                    head: "Society TDS Compliance u/s 194C & 194J",
-                    desc: "Deducting and depositing TDS on security contracts, housekeeping, and lift maintenance, with quarterly Form 26Q return filings."
-                },
-                {
-                    head: "Managing Committee & AGM Financial Advisory",
-                    desc: "Preparing annual financial budgets, sinking fund utilization reports, and presenting clear audit accounts at the Annual General Meeting."
+                    head: "Hassle-Free Annual Audit",
+                    desc: "Empanelled statutory auditors require clean collection ledgers, clear vendor vouchers, and balanced bank reconciliations to pass society accounts without audit objections."
                 }
+            ],
+            howWeHandleIt: [
+                "Automated, computerized monthly/quarterly maintenance bill generation",
+                "Vendor payment booking, expense ledgers, and bank reconciliations",
+                "Up-to-date maintenance of statutory Form I & Form J member registers",
+                "Compiling the final Annual Statement of Accounts for Statutory Audit submission"
             ]
         },
         {
@@ -182,49 +173,45 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             number: "05",
             bentoSpan: "lg:col-span-4",
             featured: false,
-            badge: "Accounting & CMA",
-            shortTitle: "Accounting & Bank CMA",
-            title: "Accounting & Bank Loan CMA",
-            subtitle: "CMA data for CC, OD & Term Loans, ratio analysis, drawing power, and bank-approved financials",
+            badge: "Loan & Credit Desk",
+            tabLabel: "Loan & Credit Desk",
+            shortTitle: "Loan & Credit Desk",
+            title: "Bank Loan Documentation & Credit Facilitation",
+            subtitle: "Structuring bank-ready financials and facilitating accelerated credit evaluations.",
+            tagline: "Structuring bank-ready financials and facilitating accelerated credit evaluations.",
             icon: "landmark",
-            tags: ["CMA Data (CC/OD/Term)", "Ratio & Drawing Power", "ICAI Balance Sheets", "5-Yr Projections"],
-            summary: "Audit-ready financial reporting and loan credit documentation structured to satisfy commercial bank underwriting, credit rating agencies, and statutory authorities.",
-            deliverables: [
+            tags: ["Lender-Grade Financials", "ITR & GST Reconciliation", "Bank Appraisal Liaison", "CC / OD & MSME Funding"],
+            summary: "A specialized facilitation desk that prepares your business's credit appraisal profile (Balance Sheet, Profit & Loss statements, and revenue matching) while coordinating directly with institutional banking desks to fast-track loan review and disbursement.",
+            whatItIs: "A specialized facilitation desk that prepares your business's credit appraisal profile (Balance Sheet, Profit & Loss statements, and revenue matching) while coordinating directly with institutional banking desks to fast-track loan review and disbursement.",
+            whyItMatters: [
                 {
-                    head: "Credit Monitoring Arrangement (CMA) Data",
-                    desc: "Preparation of in-depth 7-sheet CMA data reports (past actuals, estimates, 5-year projections, MPBF working capital calculations, and DSCR ratios) mandated by banks for loan approvals."
+                    head: "Eliminating Underwriting Rejections",
+                    desc: "Most business loan and working capital applications stall because the applicant's P&L and Balance Sheet fail banking credit criteria or conflict with filed GST turnover."
                 },
                 {
-                    head: "Bank Loan & Credit Appraisal Files (CC / OD Limits)",
-                    desc: "Classic horizontal T-Format balance sheets, fund flow statements, debt-service coverage ratios, and current ratio optimization for loan sanctions."
+                    head: "Bypassing Institutional Bureaucracy",
+                    desc: "Walking into a bank branch without a pre-vetted financial dossier leads to prolonged processing times and repeated documentation requests."
                 },
                 {
-                    head: "ICAI Non-Corporate Entity (NCE) Statements",
-                    desc: "Standardized vertical Schedule III-adapted balance sheets, statements of profit and loss, and comprehensive notes (Notes 1 to 21)."
-                },
-                {
-                    head: "Full Bookkeeping & Periodic Ledgers",
-                    desc: "Accrual-basis accounting, computerized journal vouchers, bank reconciliations, and fixed asset registers with WDV depreciation."
-                },
-                {
-                    head: "5-Year Projected Financial Viability Models",
-                    desc: "Techno-economic viability models and projected cash flow statements for term loans, commercial vehicle loans, and business expansions."
-                },
-                {
-                    head: "Depreciation & Section 32 Asset Accounting",
-                    desc: "Tax depreciation calculations reconciling Income Tax Act block rates with commercial accounting standards."
+                    head: "Securing the Right Facility",
+                    desc: "Applying for the wrong credit instrument (e.g., an expensive term loan when you need a flexible CC/OD working capital limit) can strain monthly cash flow."
                 }
+            ],
+            howWeHandleIt: [
+                "Preparing lender-grade Balance Sheets, Profit & Loss accounts, and net-worth statements",
+                "Reconciling internal books with filed ITR and GST records to ensure smooth credit underwriting",
+                "Direct institutional liaison with trusted banking partners to fast-track your file through appraisal",
+                "Tailored assistance for Working Capital Limits (CC/OD), Business Expansion Loans, and MSME funding"
             ]
         }
     ],
 
     // WhatsApp Routing Options for Consultation Desk
     consultationOptions: [
-        { label: "Direct Tax (DT) & ITR Filing", value: "Direct Tax (DT) & ITR Filing" },
         { label: "Goods & Services Tax (GST) Compliance", value: "Goods & Services Tax (GST) Compliance" },
-        { label: "Content Creator Tax & TDS Refund (Sec 44ADA)", value: "Content Creator Tax & TDS Refund (Sec 44ADA)" },
-        { label: "New Business & Startup Setup (Deeds/MSME)", value: "New Business & Startup Setup" },
-        { label: "Co-operative Housing Society (CHS) Services", value: "Co-operative Housing Society (CHS) Services" },
-        { label: "Bank Loan Financial Statements & CMA Data", value: "Bank Loan Financial Statements & CMA Data" }
+        { label: "Income Tax (ITR) & Year-End Accounts", value: "Income Tax (ITR) & Year-End Accounts" },
+        { label: "Business Setup (Deeds, MSME & Licensing)", value: "Business Setup (Deeds, MSME & Licensing)" },
+        { label: "Co-operative Housing Society (CHS) Accounting", value: "Co-operative Housing Society (CHS) Accounting" },
+        { label: "Bank Loan Documentation & Credit Facilitation", value: "Bank Loan Documentation & Credit Facilitation" }
     ]
 };
