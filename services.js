@@ -15,7 +15,7 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
         name: "GEMINI CONSULTANTS",
         tagline: "Tax • GST • Business Solutions",
         leadConsultant: "Jeet Oza",
-        role: "Principal Tax Consultant & Financial Advisor",
+        role: "Principal Tax & Financial Advisor",
         experienceBadge: "Premier Advisory Practice",
         phone: "8830634354",
         phoneInternational: "+91 88306 34354",
@@ -86,7 +86,7 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
                 },
                 {
                     head: "Portal Lockouts & Penalty Traps",
-                    desc: "Missing a single month’s GSTR-1 or GSTR-3B activates automated portal sequential locks, freezing current returns while statutory late fees and 18% annual interest compound daily."
+                    desc: "Leaving GSTR-3B unfiled for two consecutive months blocks your GSTR-1 outward return on the GST portal, while fixed daily late fees and 18% annual simple interest accrue for every day of delay."
                 }
             ],
             howWeHandleIt: [
