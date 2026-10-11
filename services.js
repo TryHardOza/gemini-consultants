@@ -1,10 +1,10 @@
 /**
  * Gemini Consultants - Enterprise Practice Data & Content Model
  * Value-First "What, Why & How" Advisory Framework
- * Core Verticals:
- * 1. Goods & Services Tax (GST)
- * 2. Income Tax & Annual Accounts (ITR)
- * 3. Business Formation & Structuring
+ * Core Verticals (Ordered 1 to 5):
+ * 1. Business Formation & Structuring (Business Setup)
+ * 2. Goods & Services Tax (GST)
+ * 3. Income Tax & Annual Accounts (ITR)
  * 4. Co-operative Housing Society (CHS) Accounting
  * 5. Bank Loan Financials & Credit Facilitation
  * Zero location references.
@@ -25,9 +25,45 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
     // 5 Core Practice Verticals (Value-First "What & Why" Framework)
     practiceAreas: [
         {
-            id: "gst-compliance",
+            id: "business-setup",
             number: "01",
             bentoSpan: "lg:col-span-7",
+            featured: true,
+            badge: "Business Formation",
+            tabLabel: "Business Setup",
+            shortTitle: "Business Setup",
+            title: "Entity Registration, Legal Deeds & Commercial Licensing",
+            subtitle: "Establish your commercial foundation without operational or legal roadblocks.",
+            tagline: "Establish your commercial foundation without operational or legal roadblocks.",
+            icon: "briefcase",
+            tags: ["Partnership Deeds", "MSME (Udyam)", "Shop & Establishment", "Current Account Dossier"],
+            summary: "Setting up the legal structure under which your enterprise contracts, invoices, and operates—such as a Sole Proprietorship, Partnership Firm, or corporate entity—paired with core statutory operating licenses.",
+            whatItIs: "Setting up the legal structure under which your enterprise contracts, invoices, and operates—such as a Sole Proprietorship, Partnership Firm, or corporate entity—paired with core statutory operating licenses.",
+            whyItMatters: [
+                {
+                    head: "Frictionless Banking & Onboarding",
+                    desc: "You cannot open a commercial Current Account, apply for merchant gateways, or onboard institutional vendors without formal entity credentials."
+                },
+                {
+                    head: "Protection Against Future Disputes",
+                    desc: "For multi-partner ventures, handshake agreements without structured partnership deeds leave profit-sharing, capital interest, and exits vulnerable to disputes."
+                },
+                {
+                    head: "Government Protection & Incentives",
+                    desc: "MSME (Udyam) registration unlocks statutory protection against delayed payments from buyers along with access to government priority-sector credit schemes."
+                }
+            ],
+            howWeHandleIt: [
+                "Custom Partnership Deed drafting and execution",
+                "MSME (Udyam) Registration and Shop & Establishment (Gumasta) licensing",
+                "Bank current account documentation packages",
+                "Entity restructuring advisory as your turnover scales"
+            ]
+        },
+        {
+            id: "gst-compliance",
+            number: "02",
+            bentoSpan: "lg:col-span-5",
             featured: true,
             badge: "Goods & Services Tax (GST)",
             tabLabel: "Goods & Services Tax (GST)",
@@ -62,9 +98,9 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
         },
         {
             id: "direct-tax",
-            number: "02",
-            bentoSpan: "lg:col-span-5",
-            featured: true,
+            number: "03",
+            bentoSpan: "lg:col-span-4",
+            featured: false,
             badge: "Income Tax & Accounts",
             tabLabel: "Income Tax (ITR)",
             shortTitle: "Income Tax (ITR)",
@@ -94,42 +130,6 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
                 "Comprehensive ITR filing for Proprietors, Partnerships, Freelancers, and Individuals",
                 "AIS / TIS / Form 26AS mismatch reconciliation",
                 "Advance tax computation and legal year-end tax optimization"
-            ]
-        },
-        {
-            id: "business-setup",
-            number: "03",
-            bentoSpan: "lg:col-span-4",
-            featured: false,
-            badge: "Business Formation",
-            tabLabel: "Business Setup",
-            shortTitle: "Business Setup",
-            title: "Entity Registration, Legal Deeds & Commercial Licensing",
-            subtitle: "Establish your commercial foundation without operational or legal roadblocks.",
-            tagline: "Establish your commercial foundation without operational or legal roadblocks.",
-            icon: "briefcase",
-            tags: ["Partnership Deeds", "MSME (Udyam)", "Shop & Establishment", "Current Account Dossier"],
-            summary: "Setting up the legal structure under which your enterprise contracts, invoices, and operates—such as a Sole Proprietorship, Partnership Firm, or corporate entity—paired with core statutory operating licenses.",
-            whatItIs: "Setting up the legal structure under which your enterprise contracts, invoices, and operates—such as a Sole Proprietorship, Partnership Firm, or corporate entity—paired with core statutory operating licenses.",
-            whyItMatters: [
-                {
-                    head: "Frictionless Banking & Onboarding",
-                    desc: "You cannot open a commercial Current Account, apply for merchant gateways, or onboard institutional vendors without formal entity credentials."
-                },
-                {
-                    head: "Protection Against Future Disputes",
-                    desc: "For multi-partner ventures, handshake agreements without structured partnership deeds leave profit-sharing, capital interest, and exits vulnerable to disputes."
-                },
-                {
-                    head: "Government Protection & Incentives",
-                    desc: "MSME (Udyam) registration unlocks statutory protection against delayed payments from buyers along with access to government priority-sector credit schemes."
-                }
-            ],
-            howWeHandleIt: [
-                "Custom Partnership Deed drafting and execution",
-                "MSME (Udyam) Registration and Shop & Establishment (Gumasta) licensing",
-                "Bank current account documentation packages",
-                "Entity restructuring advisory as your turnover scales"
             ]
         },
         {
@@ -206,11 +206,11 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
         }
     ],
 
-    // WhatsApp Routing Options for Consultation Desk
+    // WhatsApp Routing Options for Consultation Desk (Ordered 1 to 5)
     consultationOptions: [
+        { label: "Business Setup (Deeds, MSME & Licensing)", value: "Business Setup (Deeds, MSME & Licensing)" },
         { label: "Goods & Services Tax (GST) Compliance", value: "Goods & Services Tax (GST) Compliance" },
         { label: "Income Tax (ITR) & Year-End Accounts", value: "Income Tax (ITR) & Year-End Accounts" },
-        { label: "Business Setup (Deeds, MSME & Licensing)", value: "Business Setup (Deeds, MSME & Licensing)" },
         { label: "Co-operative Housing Society (CHS) Accounting", value: "Co-operative Housing Society (CHS) Accounting" },
         { label: "Bank Loan Documentation & Credit Facilitation", value: "Bank Loan Documentation & Credit Facilitation" }
     ]
