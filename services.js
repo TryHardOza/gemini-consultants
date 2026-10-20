@@ -2,21 +2,21 @@
  * Gemini Consultants - Enterprise Practice Data & Content Model
  * Value-First "What, Why & How" Advisory Framework
  * Core Verticals (Ordered 1 to 5):
- * 1. Business Formation & Structuring (Business Setup)
+ * 1. Business Setup
  * 2. Goods & Services Tax (GST)
- * 3. Income Tax & Annual Accounts (ITR)
- * 4. Co-operative Housing Society (CHS) Accounting
- * 5. Bank Loan Financials & Credit Facilitation
+ * 3. Income Tax (ITR)
+ * 4. Society Accounting
+ * 5. Bank Loan Documentation
  * Zero location references.
  */
 
 const FIRM_CONFIG = window.FIRM_CONFIG = {
     brand: {
         name: "GEMINI CONSULTANTS",
-        tagline: "Tax • GST • Business Solutions",
+        tagline: "Tax • GST • Accounts",
         leadConsultant: "Jeet Oza",
-        role: "Principal Tax & Financial Advisor",
-        experienceBadge: "Premier Advisory Practice",
+        role: "Tax and Accounts Consultant",
+        experienceBadge: "2+ years in CA firms",
         phone: "8830634354",
         phoneInternational: "+91 88306 34354",
         email: "jeetoza12@protonmail.com"
@@ -29,16 +29,14 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             number: "01",
             bentoSpan: "lg:col-span-7",
             featured: true,
-            badge: "Business Formation",
+            badge: "Business Setup",
             tabLabel: "Business Setup",
             shortTitle: "Business Setup",
             title: "Entity Registration, Legal Deeds & Commercial Licensing",
-            subtitle: "Establish your commercial foundation without operational or legal roadblocks.",
             tagline: "Establish your commercial foundation without operational or legal roadblocks.",
             icon: "briefcase",
-            tags: ["Partnership Deeds", "MSME (Udyam)", "Shop & Establishment", "Current Account Dossier"],
-            summary: "Setting up the legal structure under which your enterprise contracts, invoices, and operates—such as a Sole Proprietorship, Partnership Firm, or corporate entity—paired with core statutory operating licenses.",
-            whatItIs: "Setting up the legal structure under which your enterprise contracts, invoices, and operates—such as a Sole Proprietorship, Partnership Firm, or corporate entity—paired with core statutory operating licenses.",
+            tags: ["Partnership Deeds", "MSME (Udyam)", "Shop & Establishment License", "Documents for opening a business bank account"],
+            whatItIs: "Choosing and registering how your business is legally set up (sole proprietorship, partnership or company), plus the licences you need to run it.",
             whyItMatters: [
                 {
                     head: "Frictionless Banking & Onboarding",
@@ -55,7 +53,7 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             ],
             howWeHandleIt: [
                 "Custom Partnership Deed drafting and execution",
-                "MSME (Udyam) Registration and Shop & Establishment (Gumasta) licensing",
+                "MSME (Udyam) registration (free on government portal; fee for drafting & filing) and shop licence (Gumasta in Maharashtra)",
                 "Bank current account documentation packages",
                 "Entity restructuring advisory as your turnover scales"
             ]
@@ -65,16 +63,14 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             number: "02",
             bentoSpan: "lg:col-span-5",
             featured: true,
-            badge: "Goods & Services Tax (GST)",
-            tabLabel: "Goods & Services Tax (GST)",
-            shortTitle: "Goods & Services Tax (GST)",
+            badge: "GST",
+            tabLabel: "GST",
+            shortTitle: "GST",
             title: "GST Compliance, Filing & Input Credit Optimization",
-            subtitle: "Protect your cash flow and keep your business invoicing legitimate.",
             tagline: "Protect your cash flow and keep your business invoicing legitimate.",
             icon: "receipt",
             tags: ["GST Registration", "GSTR-1 & GSTR-3B", "GSTR-2B ITC Matching", "Notice & Backlog Desk"],
-            summary: "GST is India’s indirect tax on the commercial supply of goods and services. Registration is mandatory once aggregate turnover crosses ₹20 Lakhs for service providers or ₹40 Lakhs for traders (₹10L/₹20L in special states), or whenever you sell goods or provide services inter-state or via e-commerce.",
-            whatItIs: "GST is India’s indirect tax on the commercial supply of goods and services. Registration is mandatory once aggregate turnover crosses ₹20 Lakhs for service providers or ₹40 Lakhs for traders (₹10L/₹20L in special states), or whenever you sell goods or provide services inter-state or via e-commerce.",
+            whatItIs: "GST is a tax you collect on your sales and pass on to the government. You must register once your yearly sales cross 20 lakh rupees (services) or 40 lakh rupees (goods), or earlier in some cases such as selling through e-commerce platforms or supplying goods across state lines. Lower limits apply in some states.",
             whyItMatters: [
                 {
                     head: "Legitimate Invoicing & B2B Retention",
@@ -93,7 +89,7 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
                 "Turnkey GST registration and business trade classification",
                 "Timely monthly/quarterly return filings (GSTR-1 outward supplies & GSTR-3B tax offset)",
                 "Strict GSTR-2B purchase reconciliation to eliminate credit leakage",
-                "Fast-track backlog clearance, notice responses, and portal unblocking"
+                "Backlog clearance, notice responses, and portal unblocking"
             ]
         },
         {
@@ -102,19 +98,17 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             bentoSpan: "lg:col-span-4",
             featured: false,
             badge: "Income Tax & Accounts",
-            tabLabel: "Income Tax (ITR)",
-            shortTitle: "Income Tax (ITR)",
+            tabLabel: "Income tax returns",
+            shortTitle: "Income tax returns",
             title: "Income Tax Planning, ITR Filing & Year-End Accounts",
-            subtitle: "Legally minimize payable tax while building an audit-proof financial track record.",
             tagline: "Legally minimize payable tax while building an audit-proof financial track record.",
             icon: "scale",
             tags: ["P&L & Balance Sheets", "ITR Filing", "AIS / TIS Reconciliation", "Regime Optimization"],
-            summary: "Income Tax is the statutory annual assessment on your net business earnings, professional retainers, and personal capital. Filing your ITR is your official economic identity submitted to the Income Tax Department.",
-            whatItIs: "Income Tax is the statutory annual assessment on your net business earnings, professional retainers, and personal capital. Filing your ITR is your official economic identity submitted to the Income Tax Department.",
+            whatItIs: "Your income tax return is the yearly report of what you earned and paid. Banks, visa offices and buyers ask for it as proof.",
             whyItMatters: [
                 {
                     head: "Lending & Credit Credibility",
-                    desc: "Banks, NBFCs, and financial institutions mandate 2 to 3 years of clean, consistent ITR acknowledgments before approving business credit, overdrafts, or mortgages."
+                    desc: "Banks, NBFCs, and financial institutions require 2 to 3 years of clean, consistent ITR acknowledgments before approving business credit, overdrafts, or mortgages."
                 },
                 {
                     head: "Choosing the Right Tax Regime",
@@ -122,7 +116,7 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
                 },
                 {
                     head: "Avoiding Scrutiny Notices",
-                    desc: "Data discrepancies between your filed returns and the portal's automated Annual Information Statement (AIS) / Tax Information Summary (TIS) trigger automated verification notices."
+                    desc: "Data discrepancies between your filed returns and the portal's automated Annual Information Statement (AIS) / Tax Information Summary (TIS) can trigger automated verification notices."
                 }
             ],
             howWeHandleIt: [
@@ -141,11 +135,9 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             tabLabel: "Society Accounting",
             shortTitle: "Society Accounting",
             title: "Society Billing, Statutory Ledgers & Audit Readiness",
-            subtitle: "Eliminate member billing disputes and maintain full compliance with co-operative bye-laws.",
             tagline: "Eliminate member billing disputes and maintain full compliance with co-operative bye-laws.",
             icon: "building-2",
-            tags: ["Maintenance Billing", "Form I & J Registers", "Bank Reconciliations", "Statutory Audit Accounts"],
-            summary: "Dedicated bookkeeping and statutory compliance built strictly around the state Co-operative Societies Act and housing society bye-laws for residential complexes and commercial associations.",
+            tags: ["Maintenance Billing", "Member & Share Registers", "Bank Reconciliations", "Statutory Audit Accounts"],
             whatItIs: "Dedicated bookkeeping and statutory compliance built strictly around the state Co-operative Societies Act and housing society bye-laws for residential complexes and commercial associations.",
             whyItMatters: [
                 {
@@ -154,7 +146,7 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
                 },
                 {
                     head: "Compulsory Statutory Registers",
-                    desc: "Managing committees are legally mandated to maintain official registers (Form I, Form J, share registers, and investment ledgers) for statutory inspections."
+                    desc: "Managing committees are legally required to maintain official registers (such as Form I member register and Form J list of members in Maharashtra, along with share and investment ledgers) for statutory inspections."
                 },
                 {
                     head: "Hassle-Free Annual Audit",
@@ -164,7 +156,7 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             howWeHandleIt: [
                 "Automated, computerized monthly/quarterly maintenance bill generation",
                 "Vendor payment booking, expense ledgers, and bank reconciliations",
-                "Up-to-date maintenance of statutory Form I & Form J member registers",
+                "Up-to-date maintenance of statutory member and share registers (including Form I & Form J in Maharashtra)",
                 "Compiling the final Annual Statement of Accounts for Statutory Audit submission"
             ]
         },
@@ -173,24 +165,22 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
             number: "05",
             bentoSpan: "lg:col-span-4",
             featured: false,
-            badge: "Loan & Credit Desk",
-            tabLabel: "Loan & Credit Desk",
-            shortTitle: "Loan & Credit Desk",
-            title: "Bank Loan Documentation & Credit Facilitation",
-            subtitle: "Structuring bank-ready financials and facilitating accelerated credit evaluations.",
-            tagline: "Structuring bank-ready financials and facilitating accelerated credit evaluations.",
+            badge: "Bank Loan Documentation",
+            tabLabel: "Bank loans",
+            shortTitle: "Bank loans",
+            title: "Bank Loan Documentation",
+            tagline: "We get your accounts bank ready so your loan is not delayed by paperwork.",
             icon: "landmark",
-            tags: ["Lender-Grade Financials", "ITR & GST Reconciliation", "Bank Appraisal Liaison", "CC / OD & MSME Funding"],
-            summary: "A specialized facilitation desk that prepares your business's credit appraisal profile (Balance Sheet, Profit & Loss statements, and revenue matching) while coordinating directly with institutional banking desks to fast-track loan review and disbursement.",
-            whatItIs: "A specialized facilitation desk that prepares your business's credit appraisal profile (Balance Sheet, Profit & Loss statements, and revenue matching) while coordinating directly with institutional banking desks to fast-track loan review and disbursement.",
+            tags: ["Bank ready financial statements", "ITR & GST Reconciliation", "Credit File Organisation", "CC / OD & Term Loans"],
+            whatItIs: "A documentation service that prepares your credit appraisal profile (Balance Sheet, Profit and Loss statements, revenue matching) and guides you on the right type of loan and the right bank for your need. The bank alone decides on approval.",
             whyItMatters: [
                 {
-                    head: "Eliminating Underwriting Rejections",
+                    head: "Reducing Underwriting Rejections",
                     desc: "Most business loan and working capital applications stall because the applicant's P&L and Balance Sheet fail banking credit criteria or conflict with filed GST turnover."
                 },
                 {
-                    head: "Bypassing Institutional Bureaucracy",
-                    desc: "Walking into a bank branch without a pre-vetted financial dossier leads to prolonged processing times and repeated documentation requests."
+                    head: "Fewer Repeat Document Requests",
+                    desc: "Walking into a bank with an incomplete or inconsistent file leads to long processing times and repeated requests for papers. A complete, organised file keeps the process moving."
                 },
                 {
                     head: "Securing the Right Facility",
@@ -198,9 +188,9 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
                 }
             ],
             howWeHandleIt: [
-                "Preparing lender-grade Balance Sheets, Profit & Loss accounts, and net-worth statements",
-                "Reconciling internal books with filed ITR and GST records to ensure smooth credit underwriting",
-                "Direct institutional liaison with trusted banking partners to fast-track your file through appraisal",
+                "Preparing Balance Sheets, Profit and Loss accounts and net worth statements in the format banks ask for (CA certification arranged where the bank requires it)",
+                "Reconciling your books with filed ITR and GST records so the numbers match across documents",
+                "Guiding you on which facility fits your need (term loan or CC and OD limit) and which banks to approach, then organising your file and answering the bank's document queries during appraisal",
                 "Tailored assistance for Working Capital Limits (CC/OD), Business Expansion Loans, and MSME funding"
             ]
         }
@@ -212,6 +202,7 @@ const FIRM_CONFIG = window.FIRM_CONFIG = {
         { label: "Goods & Services Tax (GST) Compliance", value: "Goods & Services Tax (GST) Compliance" },
         { label: "Income Tax (ITR) & Year-End Accounts", value: "Income Tax (ITR) & Year-End Accounts" },
         { label: "Co-operative Housing Society (CHS) Accounting", value: "Co-operative Housing Society (CHS) Accounting" },
-        { label: "Bank Loan Documentation & Credit Facilitation", value: "Bank Loan Documentation & Credit Facilitation" }
+        { label: "Bank Loan Documentation", value: "Bank Loan Documentation" },
+        { label: "Not sure yet", value: "Not sure yet" }
     ]
 };
