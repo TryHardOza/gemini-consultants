@@ -81,6 +81,16 @@
     margin-left: -0.08em;
     margin-right: -0.14em;
 }
+/* Mobile Practice Tabs: Free horizontal scroll without snap interference */
+@media (max-width: 639px) {
+    #practiceTabs {
+        scroll-snap-type: none !important;
+        -webkit-overflow-scrolling: touch;
+    }
+    .practice-tab-btn {
+        scroll-snap-align: none !important;
+    }
+}
 /* ==========================================================================
    Second-Pass Audit Fixes & Missing Utility Classes
    ========================================================================== */
@@ -699,9 +709,9 @@
                         </p>
                     </div>
 
-                    <!-- Responsive Practice Tabs Track: Horizontal Snap-Scroll on Mobile (Never Clipped), Grid on Desktop -->
+                    <!-- Responsive Practice Tabs Track: Horizontal Scroll on Mobile (Never Clipped), Grid on Desktop -->
                     <div class="relative mb-6 sm:mb-8 sticky top-[68px] sm:static z-20 bg-theme-surface/95 backdrop-blur-md -mx-4 px-4 py-2 sm:mx-0 sm:px-0 sm:py-0 sm:bg-transparent">
-                        <div class="relative flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-2.5 pb-2 pt-1 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:gap-3 sm:overflow-visible" id="practiceTabs" role="tablist" aria-label="Practice Areas">
+                        <div class="relative flex overflow-x-auto no-scrollbar gap-2.5 pb-2 pt-1 sm:grid sm:grid-cols-3 lg:grid-cols-5 sm:gap-3 sm:overflow-visible" id="practiceTabs" role="tablist" aria-label="Practice Areas">
                             <!-- Injected dynamically via services.js -->
                         </div>
                         <!-- Right edge fade indicator on mobile to show more tabs exist -->
@@ -1144,7 +1154,7 @@
                             aria-controls="practiceContent"
                             tabindex="${isActive ? '0' : '-1'}"
                             type="button"
-                            class="practice-tab-btn shrink-0 min-w-[155px] max-w-[190px] sm:min-w-0 sm:max-w-none snap-start p-3.5 sm:p-4 rounded-[18px] text-left border flex flex-col justify-between gap-2 touch-press ${isActive ? 'is-active' : ''}">
+                            class="practice-tab-btn shrink-0 min-w-[155px] max-w-[190px] sm:min-w-0 sm:max-w-none p-3.5 sm:p-4 rounded-[18px] text-left border flex flex-col justify-between gap-2 touch-press ${isActive ? 'is-active' : ''}">
                         <div class="flex items-center justify-between w-full">
                             <span class="tab-num-label hud-label transition-colors duration-200 ${isActive ? 'text-theme-secondary font-semibold' : 'text-theme-muted'}">${num}</span>
                             ${iconSvg(p.icon || 'file-text', 'tab-icon-svg w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors duration-200 ' + (isActive ? 'text-theme-primary' : 'text-theme-muted'))}
